@@ -1,4 +1,4 @@
-<p align=center><image src="https://i.ibb.co/36BCvbV/Cute-Calc-Icon-V2.png" height="200" /></p>
+<p align=center><image src="https://i.ibb.co/jk81Ztt5/icon.png" height="200" /></p>
 <h1 align="center">Vanilla</h1>
 <p align="center">Vanilla (<a href="https://medium.com/p/1a1f37640370">formerly CuteCalc</a>) is a cute and elegant calculator app for Android !</p>
 <p align="center">
