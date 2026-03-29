@@ -1,7 +1,4 @@
-import com.android.build.gradle.internal.tasks.AarMetadataReader.Companion.load
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
-import java.io.FileInputStream
-import java.lang.System.load
 
 plugins {
     alias(libs.plugins.androidApplication)
@@ -12,7 +9,7 @@ plugins {
 
 
 android {
-    namespace = "com.sosauce.cutecalc"
+    namespace = "com.sosauce.vanilla"
     compileSdk = 36
 
     defaultConfig {
@@ -20,8 +17,8 @@ android {
         applicationId = "com.sosauce.cutecalc"
         minSdk = 23
         targetSdk = 36
-        versionCode = 40003
-        versionName = "3.7.0"
+        versionCode = 50000
+        versionName = "4.0.0"
         ndk {
             //noinspection ChromeOsAbiSupport
             abiFilters += arrayOf("arm64-v8a", "armeabi-v7a")
@@ -34,23 +31,9 @@ android {
         variant.outputs
             .map { it as com.android.build.gradle.internal.api.BaseVariantOutputImpl }
             .forEach { output ->
-                val outputFileName = "CC_${variant.versionName}.apk"
+                val outputFileName = "Vanilla_${variant.versionName}.apk"
                 output.outputFileName = outputFileName
             }
-    }
-
-    val keystoreFile = file("release_key.jks")
-    signingConfigs {
-        create("release") {
-            if (keystoreFile.exists()) {
-                storeFile = keystoreFile
-                storePassword = System.getenv("SIGNING_STORE_PASSWORD")
-                keyAlias = System.getenv("SIGNING_KEY_ALIAS")
-                keyPassword = System.getenv("SIGNING_KEY_PASSWORD")
-            } else {
-                println("No keystore found, APK will be unsigned")
-            }
-        }
     }
 
     buildTypes {
@@ -58,9 +41,6 @@ android {
             isMinifyEnabled = true
             isShrinkResources = true
             isCrunchPngs = true
-            if (keystoreFile.exists()) {
-                signingConfig = signingConfigs.findByName("release")
-            }
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"

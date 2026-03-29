@@ -1,1 +1,1 @@
-<p><i>CuteCalc</i> is a cute an elegant calculator app for Android!</p>
+Vanilla is a cute an elegant calculator app for Android!

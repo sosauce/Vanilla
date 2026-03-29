@@ -14,7 +14,7 @@
  <a href="https://github.com/sosauce/CuteCalc/releases/latest">
    <image src="https://i.ibb.co/q0mdc4Z/get-it-on-github.png" height="80"/>
  </a>
-  <a href="https://apt.izzysoft.de/fdroid/index/apk/com.sosauce.cutecalc">
+  <a href="https://apt.izzysoft.de/fdroid/index/apk/com.sosauce.vanilla">
    <image src="https://gitlab.com/IzzyOnDroid/repo/-/raw/master/assets/IzzyOnDroid.png" height="80"/>
  </a>
 </p>

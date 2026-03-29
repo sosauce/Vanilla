@@ -1,1 +1,1 @@
-<p><i>CuteCalc</i> ist eine kleine, schnelle, Open-Source Android Taschenrechner-App im Material 3 Design, die keine Berechtigungen braucht.</p>
+Vanilla ist eine kleine, schnelle, Open-Source Android Taschenrechner-App im Material 3 Design, die keine Berechtigungen braucht.

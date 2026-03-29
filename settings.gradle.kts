@@ -16,5 +16,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "CuteCalc"
+rootProject.name = "Vanilla"
 include(":app")
