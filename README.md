@@ -1,10 +1,10 @@
 <p align=center><image src="https://i.ibb.co/36BCvbV/Cute-Calc-Icon-V2.png" height="200" /></p>
-<h1 align="center">CuteCalc</h1>
-<p align="center">CuteCalc is a cute and elegant calculator app for Android !</p>
+<h1 align="center">Vanilla</h1>
+<p align="center">Vanilla (<a href="https://medium.com/p/1a1f37640370">formerly CuteCalc</a>) is a cute and elegant calculator app for Android !</p>
 <p align="center">
-  <image src="https://img.shields.io/github/downloads/sosauce/CuteCalc/total?style=for-the-badge&logo=GitHub&color=%23F9B3A9"/>
-  <image src="https://img.shields.io/github/v/release/sosauce/CuteCalc?style=for-the-badge&logo=GitHub&color=%23F9B3A9"/>
-  <image src="https://img.shields.io/badge/Kotlin-100%25-%23F9B3A9?style=for-the-badge&logo=Kotlin"/>
+  <image src="https://img.shields.io/github/downloads/sosauce/Vanilla/total?style=for-the-badge&logo=GitHub&color=f5a6bd"/>
+  <image src="https://img.shields.io/github/v/release/sosauce/Vanilla?style=for-the-badge&logo=GitHub&color=f5a6bd"/>
+  <image src="https://img.shields.io/badge/Kotlin-100%25-f5a6bd?style=for-the-badge&logo=Kotlin"/>
 </p>
 
 <p align="center">
@@ -27,9 +27,9 @@
 ---
 <h1>👀 Overview</h1>
 
-- Very lightweight (~1.2 Mb APK size) !
+- Very lightweight !
 - No permissions needed !
-- Material 3 Expressive Design !
+- Material 3 Expressive design !
 - Very fast and feature-rich !
 
 ---
@@ -53,7 +53,7 @@ If you wish to support me, you can see how to do so on [my website](https://sosa
 
 <h1>⚠️ Copyright</h1>
 
-<p>Copyright (c)2025 sosauce
+<p>Copyright (c)2026 sosauce
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
