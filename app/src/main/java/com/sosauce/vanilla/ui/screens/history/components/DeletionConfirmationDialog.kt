@@ -1,7 +1,10 @@
+@file:OptIn(ExperimentalMaterial3ExpressiveApi::class)
+
 package com.sosauce.vanilla.ui.screens.history.components
 
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.ExperimentalMaterial3ExpressiveApi
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -26,16 +29,15 @@ fun DeletionConfirmationDialog(
                     onDelete()
                     onDismissRequest()
                 },
-                colors = ButtonDefaults.textButtonColors(
-                    contentColor = MaterialTheme.colorScheme.error
-                )
+                shapes = ButtonDefaults.shapes()
             ) {
                 Text(stringResource(R.string.delete))
             }
         },
         dismissButton = {
             TextButton(
-                onClick = onDismissRequest
+                onClick = onDismissRequest,
+                shapes = ButtonDefaults.shapes()
             ) {
                 Text(stringResource(R.string.cancel))
             }

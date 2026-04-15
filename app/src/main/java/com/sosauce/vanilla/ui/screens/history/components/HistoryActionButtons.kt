@@ -75,26 +75,32 @@ fun HistoryActionButtons(
                     shapes = MenuDefaults.groupShapes()
                 ) {
                     DropdownMenuItem(
+                        selected = newestFirst,
                         onClick = { newestFirst = true },
                         text = { Text(stringResource(R.string.newest_first)) },
-                        leadingIcon = {
-                            RadioButton(
-                                selected = newestFirst,
-                                onClick = null
-                            )
+                        trailingIcon = {
+                            if (newestFirst) {
+                                Icon(
+                                    painter = painterResource(R.drawable.check),
+                                    contentDescription = null
+                                )
+                            }
                         },
-                        shape = MenuDefaults.leadingItemShape
+                        shapes = MenuDefaults.itemShapes()
                     )
                     DropdownMenuItem(
+                        selected = !newestFirst,
                         onClick = { newestFirst = false },
                         text = { Text(stringResource(R.string.oldest_first)) },
-                        leadingIcon = {
-                            RadioButton(
-                                selected = !newestFirst,
-                                onClick = null
-                            )
+                        trailingIcon = {
+                            if (!newestFirst) {
+                                Icon(
+                                    painter = painterResource(R.drawable.check),
+                                    contentDescription = null
+                                )
+                            }
                         },
-                        shape = MenuDefaults.trailingItemShape
+                        shapes = MenuDefaults.itemShapes()
                     )
                 }
             }

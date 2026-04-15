@@ -1,8 +1,11 @@
 package com.sosauce.vanilla.utils
 
 import android.app.Activity
+import android.content.Context
 import android.os.Build
 import android.view.WindowManager
+import androidx.compose.animation.core.Spring
+import androidx.compose.animation.core.spring
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.text.input.TextFieldState
@@ -204,6 +207,13 @@ fun Modifier.selfAlignHorizontally(align: Alignment.Horizontal = Alignment.Cente
             .wrapContentWidth(align)
     )
 }
+fun <T> bouncySpec() = spring<T>(
+    dampingRatio = Spring.DampingRatioMediumBouncy,
+    stiffness = Spring.StiffnessLow
+)
+
+val Context.appVersion
+    get() = packageManager.getPackageInfo(packageName, 0).versionName
 
 
 

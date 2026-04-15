@@ -2,13 +2,19 @@
 
 package com.sosauce.vanilla.ui.screens.calculator
 
+import androidx.compose.animation.core.Animatable
 import androidx.compose.foundation.background
+import androidx.compose.foundation.gestures.AnchoredDraggableState
+import androidx.compose.foundation.gestures.DraggableAnchors
 import androidx.compose.foundation.gestures.Orientation
+import androidx.compose.foundation.gestures.detectDragGesturesAfterLongPress
+import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.gestures.draggable
 import androidx.compose.foundation.gestures.rememberDraggableState
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -16,7 +22,13 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyHorizontalGrid
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.itemsIndexed
+import androidx.compose.foundation.lazy.grid.rememberLazyGridState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.BottomSheetDefaults
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExperimentalMaterial3ExpressiveApi
@@ -27,19 +39,37 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.key
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableStateListOf
+import androidx.compose.runtime.mutableStateMapOf
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.layout.onGloballyPositioned
+import androidx.compose.ui.layout.onPlaced
+import androidx.compose.ui.layout.positionInParent
+import androidx.compose.ui.layout.positionInRoot
+import androidx.compose.ui.layout.positionOnScreen
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.util.fastForEach
+import androidx.compose.ui.util.fastForEachIndexed
 import com.sosauce.vanilla.R
 import com.sosauce.vanilla.data.actions.CalcAction
 import com.sosauce.vanilla.data.calculator.Tokens
 import com.sosauce.vanilla.data.datastore.rememberHistoryMaxItems
 import com.sosauce.vanilla.data.datastore.rememberSaveErrorsToHistory
 import com.sosauce.vanilla.data.datastore.rememberShowClearButton
+import com.sosauce.vanilla.data.datastore.rememberSwapZeroAndDecimal
 import com.sosauce.vanilla.data.datastore.rememberUseHistory
 import com.sosauce.vanilla.domain.repository.HistoryEvents
 import com.sosauce.vanilla.ui.navigation.Screens
@@ -51,6 +81,8 @@ import com.sosauce.vanilla.ui.screens.history.HistoryViewModel
 import com.sosauce.vanilla.utils.BACKSPACE
 import com.sosauce.vanilla.utils.PARENTHESES
 import com.sosauce.vanilla.utils.whichParenthesis
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.launch
 import java.text.DecimalFormatSymbols
 
 
@@ -61,7 +93,7 @@ fun CalculatorScreen(
     historyViewModel: HistoryViewModel,
     onNavigate: (Screens) -> Unit,
     onUpdateDragAmount: (Float) -> Unit,
-    onDragStopped: () -> Unit
+    onDragStopped: suspend CoroutineScope.(Float) -> Unit
 ) {
     val localeDecimalChar =
         remember { DecimalFormatSymbols.getInstance().decimalSeparator.toString() }
@@ -69,6 +101,7 @@ fun CalculatorScreen(
     val saveErrorsToHistory by rememberSaveErrorsToHistory()
     val maxItemsToHistory by rememberHistoryMaxItems()
     val saveToHistory by rememberUseHistory()
+    val swapZeroAndDecimal by rememberSwapZeroAndDecimal()
 
     val row1 = listOf(
         CalcButton(
@@ -207,16 +240,32 @@ fun CalculatorScreen(
         )
     )
     val row6 = listOf(
-        CalcButton(
-            text = "0",
-            onClick = { viewModel.handleAction(CalcAction.AddToField(Tokens.ZERO)) },
-            type = ButtonType.OTHER
-        ),
-        CalcButton(
-            text = localeDecimalChar,
-            onClick = { viewModel.handleAction(CalcAction.AddToField(Tokens.DECIMAL)) },
-            type = ButtonType.OTHER
-        ),
+        if (!swapZeroAndDecimal) {
+            CalcButton(
+                text = "0",
+                onClick = { viewModel.handleAction(CalcAction.AddToField(Tokens.ZERO)) },
+                type = ButtonType.OTHER
+            )
+        } else {
+            CalcButton(
+                text = localeDecimalChar,
+                onClick = { viewModel.handleAction(CalcAction.AddToField(Tokens.DECIMAL)) },
+                type = ButtonType.OTHER
+            )
+        },
+        if (swapZeroAndDecimal) {
+            CalcButton(
+                text = "0",
+                onClick = { viewModel.handleAction(CalcAction.AddToField(Tokens.ZERO)) },
+                type = ButtonType.OTHER
+            )
+        } else {
+            CalcButton(
+                text = localeDecimalChar,
+                onClick = { viewModel.handleAction(CalcAction.AddToField(Tokens.DECIMAL)) },
+                type = ButtonType.OTHER
+            )
+        },
         CalcButton(
             text = BACKSPACE,
             onClick = { viewModel.handleAction(CalcAction.Backspace) },
@@ -245,20 +294,8 @@ fun CalculatorScreen(
         )
     )
     val dragState = rememberDraggableState { dragAmount ->
-        if (dragAmount > 0) {
-            onUpdateDragAmount(dragAmount)
-        }
+        onUpdateDragAmount(dragAmount)
     }
-
-
-//    if (isLandscape) {
-//        return CalculatorScreenLandscape(
-//            historyViewModel = historyViewModel,
-//            viewModel = viewModel,
-//            onNavigate = onNavigate,
-//            onScrollToHistory = onScrollToHistory
-//        )
-//    }
 
     Scaffold(
         modifier = modifier,
@@ -266,17 +303,13 @@ fun CalculatorScreen(
             CenterAlignedTopAppBar(
                 modifier = Modifier.clip(RoundedCornerShape(topStart = 50.dp, topEnd = 50.dp)),
                 title = {
-                    Box(
+                    BottomSheetDefaults.DragHandle(
+                        color = MaterialTheme.colorScheme.secondary,
                         modifier = Modifier
-                            .size(50.dp, 4.dp)
-                            .background(
-                                color = MaterialTheme.colorScheme.onBackground,
-                                shape = RoundedCornerShape(12.dp)
-                            )
                             .draggable(
                                 state = dragState,
                                 orientation = Orientation.Vertical,
-                                onDragStopped = { onDragStopped() }
+                                onDragStopped = onDragStopped
                             )
                     )
                 },
@@ -318,26 +351,29 @@ fun CalculatorScreen(
                 onNavigate = onNavigate
             )
             Spacer(Modifier.height(5.dp))
+
             Column(
                 modifier = Modifier
                     .fillMaxWidth(),
                 verticalArrangement = Arrangement.spacedBy(9.dp),
             ) {
                 val rows = listOf(row1, row2, row3, row4, row5, row6)
-
                 rows.forEach { row ->
                     Row(
                         modifier = Modifier.fillMaxWidth(),
                         horizontalArrangement = Arrangement.spacedBy(9.dp)
                     ) {
                         row.fastForEach { button ->
-                            CuteButton(
-                                text = button.text,
-                                onClick = button.onClick,
-                                onLongClick = button.onLongClick,
-                                rectangle = button.rectangle,
-                                buttonType = button.type
-                            )
+                            key(button.text) {
+                                CuteButton(
+                                    modifier = Modifier.weight(1f),
+                                    text = button.text,
+                                    onClick = button.onClick,
+                                    onLongClick = button.onLongClick,
+                                    rectangle = button.rectangle,
+                                    buttonType = button.type
+                                )
+                            }
                         }
                     }
                 }

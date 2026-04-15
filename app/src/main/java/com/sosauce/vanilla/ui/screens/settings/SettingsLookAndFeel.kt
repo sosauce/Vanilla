@@ -29,6 +29,7 @@ import com.sosauce.vanilla.R
 import com.sosauce.vanilla.data.datastore.rememberAppTheme
 import com.sosauce.vanilla.data.datastore.rememberColoredOperators
 import com.sosauce.vanilla.data.datastore.rememberShowClearButton
+import com.sosauce.vanilla.data.datastore.rememberSwapZeroAndDecimal
 import com.sosauce.vanilla.data.datastore.rememberUseButtonsAnimation
 import com.sosauce.vanilla.data.datastore.rememberUseSystemFont
 import com.sosauce.vanilla.data.datastore.rememberVibration
@@ -55,6 +56,7 @@ fun SettingsLookAndFeel(
     var useHapticFeedback by rememberVibration()
     var showClearButton by rememberShowClearButton()
     var coloredOperators by rememberColoredOperators()
+    var swapZeroAndDecimal by rememberSwapZeroAndDecimal()
     val themeItems = listOf(
         ThemeItem(
             onClick = { theme = CuteTheme.SYSTEM },
@@ -198,6 +200,13 @@ fun SettingsLookAndFeel(
                     topDp = 4.dp,
                     bottomDp = 4.dp,
                     text = R.string.colored_operatos
+                )
+                SettingsSwitch(
+                    checked = swapZeroAndDecimal,
+                    onCheckedChange = { swapZeroAndDecimal = !swapZeroAndDecimal },
+                    topDp = 4.dp,
+                    bottomDp = 4.dp,
+                    text = R.string.swap_zero_and_decimal
                 )
                 SettingsSwitch(
                     checked = useHapticFeedback,

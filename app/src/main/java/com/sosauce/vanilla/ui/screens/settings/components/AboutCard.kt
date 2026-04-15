@@ -13,7 +13,9 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.FilledIconButton
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButtonDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -29,12 +31,14 @@ import androidx.compose.ui.unit.dp
 import com.sosauce.vanilla.R
 import com.sosauce.vanilla.utils.GITHUB_RELEASES
 import com.sosauce.vanilla.utils.SUPPORT_PAGE
+import com.sosauce.vanilla.utils.appVersion
+import sv.lib.squircleshape.CornerSmoothing
+import sv.lib.squircleshape.SquircleShape
 
 @Composable
 fun AboutCard() {
 
     val context = LocalContext.current
-    val version = context.packageManager.getPackageInfo(context.packageName, 0).versionName
     val uriHandler = LocalUriHandler.current
 
     Card(
@@ -44,13 +48,17 @@ fun AboutCard() {
             .padding(horizontal = 16.dp, vertical = 2.dp),
         shape = RoundedCornerShape(24.dp)
     ) {
-        Row(verticalAlignment = Alignment.CenterVertically) {
+        Row(
+            verticalAlignment = Alignment.CenterVertically
+        ) {
             Box(
                 modifier = Modifier
                     .size(100.dp)
                     .padding(15.dp)
-                    .clip(RoundedCornerShape(15))
-                    .background(Color(0xFFf4a7bd)),
+                    .background(
+                        shape = SquircleShape(smoothing = CornerSmoothing.Full),
+                        color = Color(0xFFf4a7bd)
+                    ),
                 contentAlignment = Alignment.Center
             ) {
                 Icon(
@@ -61,37 +69,38 @@ fun AboutCard() {
                 )
             }
             Column {
-                Text(stringResource(R.string.cc_by_sosauce))
+                Text("Vanilla")
                 Text(
-                    text = "${stringResource(R.string.version)} $version",
-                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                    text = "${stringResource(id = R.string.version)} ${context.appVersion}",
+                    style = MaterialTheme.typography.bodyMediumEmphasized.copy(
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
                 )
             }
-        }
-        Row(
-            modifier = Modifier.padding(8.dp)
-        ) {
-            Button(
-                onClick = { uriHandler.openUri(GITHUB_RELEASES) },
-                shape = RoundedCornerShape(
-                    topStart = 24.dp,
-                    bottomStart = 24.dp,
-                    topEnd = 4.dp,
-                    bottomEnd = 4.dp
-                ),
-                modifier = Modifier.weight(1f)
-            ) { Text(stringResource(R.string.update)) }
-            Spacer(Modifier.width(2.dp))
-            Button(
-                onClick = { uriHandler.openUri(SUPPORT_PAGE) },
-                shape = RoundedCornerShape(
-                    topStart = 4.dp,
-                    bottomStart = 4.dp,
-                    topEnd = 24.dp,
-                    bottomEnd = 24.dp
-                ),
-                modifier = Modifier.weight(1f)
-            ) { Text(stringResource(R.string.support)) }
+            Spacer(Modifier.weight(1f))
+            Row(
+                verticalAlignment = Alignment.Top,
+                modifier = Modifier.padding(end = 15.dp)
+            ) {
+                FilledIconButton(
+                    onClick = { uriHandler.openUri(GITHUB_RELEASES) },
+                    shapes = IconButtonDefaults.shapes()
+                ) {
+                    Icon(
+                        painter = painterResource(R.drawable.github),
+                        contentDescription = null
+                    )
+                }
+                FilledIconButton(
+                    onClick = { uriHandler.openUri(SUPPORT_PAGE) },
+                    shapes = IconButtonDefaults.shapes()
+                ) {
+                    Icon(
+                        painter = painterResource(R.drawable.favorite_filled),
+                        contentDescription = null
+                    )
+                }
+            }
         }
     }
 }

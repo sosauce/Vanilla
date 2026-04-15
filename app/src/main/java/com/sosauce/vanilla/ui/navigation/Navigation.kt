@@ -6,6 +6,7 @@ import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
+import androidx.compose.animation.slideInHorizontally
 import androidx.compose.animation.togetherWith
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -35,6 +36,7 @@ import com.sosauce.vanilla.ui.screens.history.HistoryViewModel
 import com.sosauce.vanilla.ui.screens.settings.SettingsScreen
 import com.sosauce.vanilla.utils.CalculatorViewModelFactory
 import com.sosauce.vanilla.utils.HistoryViewModelFactory
+import com.sosauce.vanilla.utils.bouncySpec
 import kotlinx.coroutines.launch
 import kotlin.math.roundToInt
 
@@ -63,7 +65,7 @@ fun Nav() {
 
     AnimatedContent(
         targetState = screenToDisplay,
-        transitionSpec = { fadeIn() togetherWith fadeOut() },
+        transitionSpec = { slideInHorizontally(bouncySpec()) { -it } + fadeIn() togetherWith fadeOut() },
         modifier = Modifier.background(MaterialTheme.colorScheme.background)
     ) { screen ->
         when (screen) {
@@ -84,7 +86,7 @@ fun Nav() {
                         },
                         onGotoMain = {
                             scope.launch {
-                                yTranslation.animateTo(0f)
+                                yTranslation.animateTo(0f, bouncySpec())
                             }
                         }
                     )
@@ -100,7 +102,7 @@ fun Nav() {
                             onNavigate = { screenToDisplay = it },
                             onGotoHistory = {
                                 scope.launch {
-                                    yTranslation.animateTo(windowInfo.containerSize.height.toFloat())
+                                    yTranslation.animateTo(windowInfo.containerSize.height.toFloat(), bouncySpec())
                                 }
                             }
                         )
@@ -114,19 +116,17 @@ fun Nav() {
                             onNavigate = { screenToDisplay = it },
                             historyViewModel = historyViewModel,
                             onUpdateDragAmount = { dragAmount ->
+                                val value = (yTranslation.value + dragAmount).coerceAtLeast(0f) // always keep the value positive or else it's a shithole to manage
+
                                 scope.launch {
-                                    yTranslation.snapTo(yTranslation.value + dragAmount)
+                                    yTranslation.snapTo(value)
                                 }
                             },
                             onDragStopped = {
                                 if (yTranslation.value.roundToInt() >= windowInfo.containerSize.height / 2) {
-                                    scope.launch {
-                                        yTranslation.animateTo(windowInfo.containerSize.height.toFloat())
-                                    }
+                                    yTranslation.animateTo(windowInfo.containerSize.height.toFloat(), bouncySpec())
                                 } else {
-                                    scope.launch {
-                                        yTranslation.animateTo(0f)
-                                    }
+                                    yTranslation.animateTo(0f, bouncySpec())
                                 }
                             }
                         )

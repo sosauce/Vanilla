@@ -2,6 +2,8 @@
 
 package com.sosauce.vanilla.ui.screens.calculator.components
 
+import android.os.VibrationEffect
+import android.os.Vibrator
 import androidx.compose.animation.core.animateIntAsState
 import androidx.compose.foundation.background
 import androidx.compose.foundation.combinedClickable
@@ -28,6 +30,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.hapticfeedback.HapticFeedbackType
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalHapticFeedback
 import androidx.compose.ui.res.painterResource
@@ -44,7 +47,7 @@ import com.sosauce.vanilla.utils.BACKSPACE
 import com.sosauce.vanilla.utils.PARENTHESES
 
 @Composable
-fun RowScope.CuteButton(
+fun CuteButton(
     modifier: Modifier = Modifier,
     text: String,
     buttonType: ButtonType = ButtonType.OTHER,
@@ -54,7 +57,6 @@ fun RowScope.CuteButton(
     rectangle: Boolean
 ) {
     val haptic = LocalHapticFeedback.current
-    LocalDensity.current
     val shouldVibrate by rememberVibration()
     val useButtonsAnimation by rememberUseButtonsAnimation()
     val isPressed by interactionSource.collectIsPressedAsState()
@@ -79,16 +81,12 @@ fun RowScope.CuteButton(
                     onClick()
                     if (shouldVibrate) haptic.performHapticFeedback(HapticFeedbackType.Confirm)
                 },
-                onLongClick = {
-                    onLongClick?.invoke()
-                    if (shouldVibrate) haptic.performHapticFeedback(HapticFeedbackType.Confirm)
-                }
+                onLongClick = onLongClick
             )
             .defaultMinSize(
                 minWidth = ButtonDefaults.MinWidth,
                 minHeight = ButtonDefaults.MinHeight
             )
-            .weight(1f)
             .background(backgroundColor)
             .let {
                 if (!isLandscape && !rectangle) it.aspectRatio(1f) else it

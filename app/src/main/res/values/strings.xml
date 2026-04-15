@@ -55,4 +55,5 @@
     <string name="no_calc_found">No calculation found !</string>
     <string name="calc_empty">Start calculating already !</string>
     <string name="colored_operatos">Colored operators</string>
+    <string name="swap_zero_and_decimal">Swap zero &amp; decimal</string>
 </resources>

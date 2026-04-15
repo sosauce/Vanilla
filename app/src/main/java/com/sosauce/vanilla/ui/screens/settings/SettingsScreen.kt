@@ -6,7 +6,9 @@ import androidx.activity.compose.BackHandler
 import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
+import androidx.compose.animation.slideInHorizontally
 import androidx.compose.animation.togetherWith
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
@@ -15,6 +17,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
@@ -31,6 +34,7 @@ import com.sosauce.vanilla.ui.navigation.SettingsScreen
 import com.sosauce.vanilla.ui.screens.settings.components.AboutCard
 import com.sosauce.vanilla.ui.screens.settings.components.SettingsCategoryCard
 import com.sosauce.vanilla.ui.shared_components.CuteNavigationButton
+import com.sosauce.vanilla.utils.bouncySpec
 import com.sosauce.vanilla.utils.selfAlignHorizontally
 import kotlin.uuid.ExperimentalUuidApi
 import kotlin.uuid.Uuid
@@ -54,7 +58,8 @@ fun SettingsScreen(
 
     AnimatedContent(
         targetState = screenToDisplay,
-        transitionSpec = { fadeIn() togetherWith fadeOut() }
+        modifier = Modifier.background(MaterialTheme.colorScheme.background),
+        transitionSpec = { slideInHorizontally(bouncySpec()) { -it } + fadeIn() togetherWith fadeOut() }
     ) { screen ->
         when (screen) {
             SettingsScreen.SETTINGS -> {

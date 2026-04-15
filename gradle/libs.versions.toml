@@ -1,16 +1,17 @@
 [versions]
-agp = "9.1.0"
-composeBom = "2026.02.00"
+agp = "9.1.1"
+composeBom = "2026.03.01"
 coreSplashscreen = "1.2.0"
-datastorePreferences = "1.2.0"
+datastorePreferences = "1.2.1"
 keval = "1.1.1"
-kotlin = "2.3.10"
+kotlin = "2.3.20"
 ksp = "2.3.4"
 lifecycleViewmodelCompose = "2.10.0"
 roomCompiler = "2.8.4"
 roomKtx = "2.8.4"
-activityCompose = "1.12.4"
-material3 = "1.5.0-alpha14"
+activityCompose = "1.13.0"
+material3 = "1.5.0-alpha17"
+squircleShape = "5.2.0"
 
 
 [libraries]
@@ -24,6 +25,7 @@ keval = { module = "com.notkamui.libs:keval", version.ref = "keval" }
 androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "roomCompiler" }
 androidx-room-ktx = { module = "androidx.room:room-ktx", version.ref = "roomKtx" }
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "activityCompose" }
+squircle-shape = { module = "com.stoyanvuchev:squircle-shape", version.ref = "squircleShape" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

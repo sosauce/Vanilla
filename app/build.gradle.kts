@@ -10,15 +10,15 @@ plugins {
 
 android {
     namespace = "com.sosauce.vanilla"
-    compileSdk = 36
+    compileSdk = 37
 
     defaultConfig {
 
         applicationId = "com.sosauce.cutecalc"
         minSdk = 23
-        targetSdk = 36
-        versionCode = 50000
-        versionName = "4.0.0"
+        targetSdk = 37
+        versionCode = 50001
+        versionName = "4.0.1"
         ndk {
             //noinspection ChromeOsAbiSupport
             abiFilters += arrayOf("arm64-v8a", "armeabi-v7a")
@@ -40,7 +40,6 @@ android {
         release {
             isMinifyEnabled = true
             isShrinkResources = true
-            isCrunchPngs = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -84,5 +83,6 @@ dependencies {
     implementation(libs.androidx.datastore.preferences)
     implementation(libs.keval)
     implementation(libs.androidx.room.ktx)
+    implementation(libs.squircle.shape)
     ksp(libs.androidx.room.compiler)
 }

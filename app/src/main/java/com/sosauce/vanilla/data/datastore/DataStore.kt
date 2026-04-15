@@ -28,6 +28,7 @@ data object PreferencesKeys {
     val SHOW_ON_LOCKSCREEN = booleanPreferencesKey("SHOW_ON_LOCKSCREEN")
     val HISTORY_NEWEST_FIRST = booleanPreferencesKey("HISTORY_NEWEST_FIRST")
     val COLORED_OPERATORS = booleanPreferencesKey("COLORED_OPERATORS")
+    val SWAP_ZERO_AND_DECIMAL = booleanPreferencesKey("SWAP_ZERO_AND_DECIMAL")
 }
 
 @Composable
@@ -119,6 +120,13 @@ fun rememberColoredOperators() =
     rememberPreference(
         key = PreferencesKeys.COLORED_OPERATORS,
         defaultValue = true
+    )
+
+@Composable
+fun rememberSwapZeroAndDecimal() =
+    rememberPreference(
+        key = PreferencesKeys.SWAP_ZERO_AND_DECIMAL,
+        defaultValue = false
     )
 
 fun getDecimalPrecision(context: Context) = getPreference(
