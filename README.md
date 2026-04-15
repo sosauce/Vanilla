@@ -27,10 +27,10 @@
 ---
 <h1>👀 Overview</h1>
 
-- Very lightweight !
-- No permissions needed !
-- Material 3 Expressive design !
-- Very fast and feature-rich !
+- Material 3 Expressive design!
+- Very lightweight! (~5Mb app size)
+- No permissions needed!
+- Very fast and feature-rich!
 
 ---
 <h1>🤔 Why ?</h1>
