@@ -35,7 +35,7 @@
 ---
 <h1>🤔 Why ?</h1>
 
-<p>I am 15 y/o and have been into computers ever since I was ~10, growing up, I always thought about how software could do anything someone could dream of, so I started learning multiple languages until stepping upon Kotlin. Since then, I've learnt and started to build Android apps, and CuteCalc is my first project upon, I hope, alot more. </p>
+<p>I am 17 y/o and have been into computers ever since I was ~10, growing up, I always thought about how software could do anything someone could dream of, so I started learning multiple languages until stepping upon Kotlin. Since then, I've learnt and started to build Android apps, and Vanilla is my first project among, I hope, a lot more. </p>
 
 ---
 <h1>💬 Contact Me</h1>
