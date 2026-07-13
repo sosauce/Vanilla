@@ -1,3 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="theme">Görünüm</string>
+    <string name="settings">Ayarlar</string>
+    <string name="dark_mode">Karanlık</string>
+    <string name="light_mode">Aydınlık</string>
+    <string name="amoled_mode">Derin Siyah</string>
+    <string name="version">Versiyon</string>
+    <string name="update">Güncellemeleri kontrol et</string>
+    <string name="cc_by_sosauce">sosauce tarafından Vanilla</string>
+    <string name="follow_sys">Sistem</string>
+    <string name="font">Yazı Tipi</string>
+    <string name="system">Sistem</string>
+    <string name="buttons_anim">Tuş animasyonları</string>
+    <string name="history">Hesaplama Geçmişi</string>
+    <string name="use_history">Geçmişi kullan</string>
 </resources>
