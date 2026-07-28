@@ -7,7 +7,7 @@
     <string name="version">Version</string>
     <string name="update">Nach Update suchen</string>
     <string name="cc_by_sosauce">Vanilla von sosauce</string>
-    <string name="follow_sys">Systemstandard</string>
+    <string name="follow_sys">System Standard</string>
     <string name="font">Schrift</string>
     <string name="system">System</string>
     <string name="back">Zurück</string>
@@ -24,7 +24,7 @@
     <string name="clear_history">Lösche Verlauf</string>
     <string name="ui">Benutzeroberfläche</string>
     <string name="look_and_feel">Aussehen und Verhalten</string>
-    <string name="look_and_feel_desc">Warum nicht mit Stil rechnen?</string>
+    <string name="look_and_feel_desc">Warum nicht stilvoll kalkulieren?</string>
     <string name="default_font">Standard</string>
     <string name="buttons_anim">Tasten-Animationen</string>
     <string name="colored_operatos">Farbige Rechenzeichen</string>
