@@ -25,4 +25,13 @@
     <string name="newest_first">Önce en yeni</string>
     <string name="oldest_first">Önce en eski</string>
     <string name="look_and_feel">Görünüm ve his</string>
+    <string name="misc">Ekstralar</string>
+    <string name="haptic_feedback">Dokundukça titreşim</string>
+    <string name="ascending">Artan</string>
+    <string name="descending">Azalan</string>
+    <string name="decimal_formatting">Ondalıklı biçimlendirme</string>
+    <string name="show_clear_button">Silme butonunu göster</string>
+    <string name="clear_button_desc">Bu ayarı kapatsanız bile silme tuşuna basılı tutarak yazdığınızı silebilirsiniz.</string>
+    <string name="backspace">Sil</string>
+    <string name="more_actions">Daha fazla işlev</string>
 </resources>
