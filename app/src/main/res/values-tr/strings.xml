@@ -4,7 +4,7 @@
     <string name="settings">Ayarlar</string>
     <string name="dark_mode">Karanlık</string>
     <string name="light_mode">Aydınlık</string>
-    <string name="amoled_mode">Derin Siyah</string>
+    <string name="amoled_mode">AMOLED Modu</string>
     <string name="version">Versiyon</string>
     <string name="update">Güncellemeleri kontrol et</string>
     <string name="cc_by_sosauce">sosauce tarafından Vanilla</string>
@@ -14,4 +14,15 @@
     <string name="buttons_anim">Tuş animasyonları</string>
     <string name="history">Hesaplama Geçmişi</string>
     <string name="use_history">Geçmişi kullan</string>
+    <string name="back">Geri</string>
+    <string name="history_not_enabled">Görünüşe göre geçmiş etkinleştirilmemiş!</string>
+    <string name="enable_history">Geçmişi etkinleştir</string>
+    <string name="sort">Sırala</string>
+    <string name="delete">Sil</string>
+    <string name="copy">Panoya kopyala</string>
+    <string name="history_desc">Her şeyi hatırla!</string>
+    <string name="save_errors">Hataları geçmişe kaydet</string>
+    <string name="newest_first">Önce en yeni</string>
+    <string name="oldest_first">Önce en eski</string>
+    <string name="look_and_feel">Görünüm ve his</string>
 </resources>
