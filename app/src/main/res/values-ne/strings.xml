@@ -1,3 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="theme">थिम</string>
+    <string name="settings">सेटिङहरू</string>
+    <string name="dark_mode">डार्क</string>
+    <string name="light_mode">लाइट</string>
+    <string name="version">संस्करण</string>
+    <string name="support">सहयोग</string>
+    <string name="update">अपडेट जाँच गर्नुहोस्</string>
 </resources>
