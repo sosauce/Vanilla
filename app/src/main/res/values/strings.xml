@@ -4,7 +4,7 @@
     <string name="settings">Settings</string>
     <string name="dark_mode">Dark</string>
     <string name="light_mode">Light</string>
-    <string name="amoled_mode">Amoled</string>
+    <string name="amoled_mode">AMOLED-Modus</string>
     <string name="version">Version</string>
     <string name="update">Check updates</string>
     <string name="cc_by_sosauce">Vanilla by sosauce</string>

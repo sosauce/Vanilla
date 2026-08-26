@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="theme">Görünüm</string>
+    <string name="settings">Ayarlar</string>
+    <string name="dark_mode">Karanlık</string>
+    <string name="light_mode">Aydınlık</string>
+    <string name="amoled_mode">AMOLED Modu</string>
+    <string name="version">Versiyon</string>
+    <string name="update">Güncellemeleri kontrol et</string>
+    <string name="cc_by_sosauce">sosauce tarafından Vanilla</string>
+    <string name="follow_sys">Sistem</string>
+    <string name="font">Yazı Tipi</string>
+    <string name="system">Sistem</string>
+    <string name="buttons_anim">Tuş animasyonları</string>
+    <string name="history">Hesaplama Geçmişi</string>
+    <string name="use_history">Geçmişi kullan</string>
+    <string name="back">Geri</string>
+    <string name="history_not_enabled">Görünüşe göre geçmiş etkinleştirilmemiş!</string>
+    <string name="enable_history">Geçmişi etkinleştir</string>
+    <string name="sort">Sırala</string>
+    <string name="delete">Sil</string>
+    <string name="copy">Panoya kopyala</string>
+    <string name="history_desc">Her şeyi hatırla!</string>
+    <string name="save_errors">Hataları geçmişe kaydet</string>
+    <string name="newest_first">Önce en yeni</string>
+    <string name="oldest_first">Önce en eski</string>
+    <string name="look_and_feel">Görünüm ve his</string>
+    <string name="misc">Ekstralar</string>
+    <string name="haptic_feedback">Dokundukça titreşim</string>
+    <string name="ascending">Artan</string>
+    <string name="descending">Azalan</string>
+    <string name="decimal_formatting">Ondalıklı biçimlendirme</string>
+    <string name="show_clear_button">Silme butonunu göster</string>
+    <string name="clear_button_desc">Bu ayarı kapatsanız bile silme tuşuna basılı tutarak yazdığınızı silebilirsiniz.</string>
+    <string name="backspace">Sil</string>
+    <string name="more_actions">Daha fazla işlev</string>
+</resources>
