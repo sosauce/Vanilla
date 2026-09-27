@@ -4,7 +4,7 @@
     <string name="settings">设置</string>
     <string name="dark_mode">深色</string>
     <string name="light_mode">浅色</string>
-    <string name="amoled_mode">暗色模式 (Amoled)</string>
+    <string name="amoled_mode">Amoled</string>
     <string name="version">版本</string>
     <string name="update">检查更新</string>
     <string name="cc_by_sosauce">Vanilla by sosauce</string>
