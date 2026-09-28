@@ -56,4 +56,8 @@
     <string name="calc_empty">Allez, commencez à calculer !</string>
     <string name="colored_operatos">Opérateurs colorés</string>
     <string name="swap_zero_and_decimal">Inverser le zéro et la virgule décimale</string>
+    <string name="appearance">Apparence</string>
+    <string name="default_text">Par défaut</string>
+    <string name="enter_new_value">Saisissez une nouvelle valeur</string>
+    <string name="enter_value_between_range">Entrez une valeur comprise entre %1$d et %2$d</string>
 </resources>
