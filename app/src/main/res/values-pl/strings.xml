@@ -62,4 +62,6 @@
     <string name="apply">Zastosuj</string>
     <string name="enter_value_between_range">Wprowadź wartość od %1$d do %2$d</string>
     <string name="empty_history">Historia jest pusta!</string>
+    <string name="app_name">Vanilla</string>
+    <string name="empty_history_desc">2 + 2 = 4, tak myślę</string>
 </resources>
