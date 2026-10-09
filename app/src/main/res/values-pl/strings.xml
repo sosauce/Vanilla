@@ -4,7 +4,7 @@
     <string name="settings">Ustawienia</string>
     <string name="dark_mode">Ciemny</string>
     <string name="light_mode">Jasny</string>
-    <string name="amoled_mode">Amoled</string>
+    <string name="amoled_mode">Tryb AMOLED</string>
     <string name="version">Wersja</string>
     <string name="update">Sprawdź aktualizacje</string>
     <string name="cc_by_sosauce">Vanilla by sosauce</string>
@@ -56,4 +56,12 @@
     <string name="calc_empty">Zacznij już teraz liczyć!</string>
     <string name="colored_operatos">Kolorowanie operatorów</string>
     <string name="swap_zero_and_decimal">Zamień miejscami zero i przecinek</string>
+    <string name="appearance">Wygląd</string>
+    <string name="default_text">Domyślny</string>
+    <string name="enter_new_value">Wprowadź nową wartość</string>
+    <string name="apply">Zastosuj</string>
+    <string name="enter_value_between_range">Wprowadź wartość od %1$d do %2$d</string>
+    <string name="empty_history">Historia jest pusta!</string>
+    <string name="app_name">Vanilla</string>
+    <string name="empty_history_desc">2 + 2 = 4, tak myślę</string>
 </resources>

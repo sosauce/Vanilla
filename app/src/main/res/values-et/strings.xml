@@ -4,7 +4,7 @@
     <string name="settings">Seadistused</string>
     <string name="dark_mode">Tume kujundus</string>
     <string name="light_mode">Hele kujundus</string>
-    <string name="amoled_mode">Amoled-kujundus</string>
+    <string name="amoled_mode">Amoled-režiim</string>
     <string name="version">Versioon</string>
     <string name="update">Kontrolli uuendusi</string>
     <string name="cc_by_sosauce">Vanilla arendajalt sosauce</string>
@@ -56,4 +56,12 @@
     <string name="calc_empty">No hakka juba arvutama midagi!</string>
     <string name="colored_operatos">Värvilised tehtemärgid</string>
     <string name="swap_zero_and_decimal">Vaheta null ja komakoht</string>
+    <string name="appearance">Välimus</string>
+    <string name="default_text">Vaikimisi</string>
+    <string name="enter_new_value">Sisesta uus väärtus</string>
+    <string name="apply">Rakenda</string>
+    <string name="enter_value_between_range">Sisesta väärtus vahemikust %1$d kuni %2$d</string>
+    <string name="empty_history">Ajalugu on tühi!</string>
+    <string name="empty_history_desc">Ma arvaks, et 2 + 2 = 4</string>
+    <string name="app_name">Vanilla</string>
 </resources>

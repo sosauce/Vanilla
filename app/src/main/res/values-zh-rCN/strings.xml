@@ -4,7 +4,7 @@
     <string name="settings">设置</string>
     <string name="dark_mode">深色</string>
     <string name="light_mode">浅色</string>
-    <string name="amoled_mode">暗色模式 (Amoled)</string>
+    <string name="amoled_mode">AMOLED-Modus</string>
     <string name="version">版本</string>
     <string name="update">检查更新</string>
     <string name="cc_by_sosauce">Vanilla by sosauce</string>
@@ -56,4 +56,8 @@
     <string name="calc_empty">快开始计算吧！</string>
     <string name="colored_operatos">彩色运算符</string>
     <string name="swap_zero_and_decimal">调换 0 与小数点位置</string>
+    <string name="appearance">外观</string>
+    <string name="default_text">默认</string>
+    <string name="enter_new_value">输入新值</string>
+    <string name="enter_value_between_range">输入 %1$d 和 %2$d 之间的值</string>
 </resources>
