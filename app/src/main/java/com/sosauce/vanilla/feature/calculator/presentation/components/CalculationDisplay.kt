@@ -2,12 +2,6 @@
 
 package com.sosauce.vanilla.feature.calculator.presentation.components
 
-import androidx.compose.animation.AnimatedContent
-import androidx.compose.animation.fadeIn
-import androidx.compose.animation.fadeOut
-import androidx.compose.animation.slideInVertically
-import androidx.compose.animation.slideOutVertically
-import androidx.compose.animation.togetherWith
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -32,7 +26,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.sosauce.nekobites.animations.AnimatedCounter
 import com.sosauce.vanilla.core.domain.Tokens
 import com.sosauce.vanilla.core.presentation.rememberColoredOperators
 import com.sosauce.vanilla.core.presentation.rememberDecimal

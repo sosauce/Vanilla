@@ -3,20 +3,16 @@ package com.sosauce.vanilla.feature.calculator.domain
 import com.notkamui.keval.BigDecimal
 import com.notkamui.keval.Keval
 import com.notkamui.keval.KevalInvalidArgumentException
-import com.notkamui.keval.KevalInvalidExpressionException
 import com.notkamui.keval.KevalNumbers
 import com.sosauce.vanilla.core.domain.Tokens
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.ensureActive
 import kotlinx.coroutines.withContext
 import java.math.BigDecimal
-import java.math.MathContext
 import java.math.RoundingMode
 import kotlin.math.PI
 import kotlin.math.sqrt
 
 class NegativeSquareRootException : RuntimeException("Be for real 3:<")
-class ValueTooLargeException : RuntimeException("Value too large")
 object Evaluator {
 
     private val KEVAL = Keval.create(KevalNumbers.BigDecimal) {

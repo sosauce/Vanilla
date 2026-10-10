@@ -2,7 +2,6 @@
 
 package com.sosauce.vanilla.feature.settings.presentation
 
-import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.foundation.background
@@ -18,11 +17,8 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3ExpressiveApi
-import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialShapes
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.MenuDefaults
-import androidx.compose.material3.SelectableDropdownMenuItem
 import androidx.compose.material3.Text
 import androidx.compose.material3.contentColorFor
 import androidx.compose.material3.toShape
@@ -33,11 +29,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.compose.ui.util.fastForEachIndexed
 import com.sosauce.nekobites.components.Spacer
 import com.sosauce.vanilla.R
 import com.sosauce.vanilla.core.presentation.rememberDecimal
@@ -50,7 +44,6 @@ import com.sosauce.vanilla.feature.settings.presentation.components.SettingsSwit
 import com.sosauce.vanilla.feature.settings.presentation.components.SettingsWithTitle
 import com.sosauce.vanilla.core.domain.DecimalSeparator
 import com.sosauce.vanilla.core.domain.GroupingSeparator
-import com.sosauce.vanilla.core.domain.formatNumber
 import com.sosauce.vanilla.core.presentation.rememberResolvedSeparators
 import com.sosauce.vanilla.core.presentation.rememberSeparatorSymbols
 

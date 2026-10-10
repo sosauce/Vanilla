@@ -18,21 +18,13 @@ import com.sosauce.vanilla.feature.calculator.domain.Evaluator
 import com.sosauce.vanilla.core.data.preferences.getDecimalPrecision
 import com.sosauce.vanilla.feature.calculator.presentation.backspace
 import com.sosauce.vanilla.feature.calculator.presentation.insertText
-import com.sosauce.vanilla.core.domain.isErrorMessage
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.combine
-import kotlinx.coroutines.flow.debounce
-import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
-import kotlin.time.Duration.Companion.milliseconds
 
 class CalculatorViewModel(
     private val application: Application
