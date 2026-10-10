@@ -1,6 +1,6 @@
 @file:OptIn(ExperimentalMaterial3ExpressiveApi::class)
 
-package com.sosauce.vanilla.ui.screens.settings.components
+package com.sosauce.vanilla.feature.settings.presentation.components
 
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.foundation.background

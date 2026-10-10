@@ -1,4 +1,4 @@
-package com.sosauce.vanilla.ui.screens.settings.components
+package com.sosauce.vanilla.feature.settings.presentation.components
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding

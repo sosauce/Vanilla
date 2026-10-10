@@ -1,4 +1,4 @@
-package com.sosauce.vanilla.ui.screens.settings
+package com.sosauce.vanilla.feature.settings.presentation
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.runtime.Composable
@@ -7,8 +7,8 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.unit.dp
 import com.sosauce.vanilla.R
 import com.sosauce.vanilla.core.data.preferences.rememberShowOnLockScreen
-import com.sosauce.vanilla.ui.screens.settings.components.SettingsSwitch
-import com.sosauce.vanilla.ui.screens.settings.components.SettingsWithTitle
+import com.sosauce.vanilla.feature.settings.presentation.components.SettingsSwitch
+import com.sosauce.vanilla.feature.settings.presentation.components.SettingsWithTitle
 
 @Composable
 fun SettingsMisc() {

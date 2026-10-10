@@ -1,6 +1,6 @@
 @file:OptIn(ExperimentalUuidApi::class)
 
-package com.sosauce.vanilla.ui.screens.settings
+package com.sosauce.vanilla.feature.settings.presentation
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
@@ -26,8 +26,8 @@ import com.sosauce.vanilla.app.navigation.Formatting
 import com.sosauce.vanilla.app.navigation.HistorySettings
 import com.sosauce.vanilla.app.navigation.LookAndFeel
 import com.sosauce.vanilla.app.navigation.Misc
-import com.sosauce.vanilla.ui.screens.settings.components.AboutCard
-import com.sosauce.vanilla.ui.screens.settings.components.SettingsCategoryCard
+import com.sosauce.vanilla.feature.settings.presentation.components.AboutCard
+import com.sosauce.vanilla.feature.settings.presentation.components.SettingsCategoryCard
 import com.sosauce.vanilla.utils.selfAlignHorizontally
 import kotlin.uuid.ExperimentalUuidApi
 import kotlin.uuid.Uuid

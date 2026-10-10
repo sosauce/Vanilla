@@ -1,4 +1,4 @@
-package com.sosauce.vanilla.ui.screens.settings
+package com.sosauce.vanilla.feature.settings.presentation
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Column
@@ -28,10 +28,10 @@ import com.sosauce.vanilla.core.data.preferences.rememberSwapZeroAndDecimal
 import com.sosauce.vanilla.core.data.preferences.rememberUseButtonsAnimation
 import com.sosauce.vanilla.core.data.preferences.rememberUseSystemFont
 import com.sosauce.vanilla.core.data.preferences.rememberVibration
-import com.sosauce.vanilla.ui.screens.settings.components.LazyRowWithScrollButton
-import com.sosauce.vanilla.ui.screens.settings.components.SettingsSelector
-import com.sosauce.vanilla.ui.screens.settings.components.SettingsSwitch
-import com.sosauce.vanilla.ui.screens.settings.components.SettingsWithTitle
+import com.sosauce.vanilla.feature.settings.presentation.components.LazyRowWithScrollButton
+import com.sosauce.vanilla.feature.settings.presentation.components.SettingsSelector
+import com.sosauce.vanilla.feature.settings.presentation.components.SettingsSwitch
+import com.sosauce.vanilla.feature.settings.presentation.components.SettingsWithTitle
 import com.sosauce.vanilla.core.designsystem.theme.nunitoFontFamily
 import com.sosauce.vanilla.core.domain.CuteTheme
 import com.sosauce.vanilla.utils.anyDarkColorScheme

@@ -1,4 +1,4 @@
-package com.sosauce.vanilla.ui.screens.settings.components
+package com.sosauce.vanilla.feature.settings.presentation.components
 
 import androidx.annotation.StringRes
 import androidx.compose.animation.AnimatedContent

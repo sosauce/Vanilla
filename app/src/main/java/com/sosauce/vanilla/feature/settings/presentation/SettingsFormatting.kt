@@ -1,6 +1,6 @@
 @file:OptIn(ExperimentalMaterial3ExpressiveApi::class)
 
-package com.sosauce.vanilla.ui.screens.settings
+package com.sosauce.vanilla.feature.settings.presentation
 
 import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.AnimatedVisibility
@@ -44,10 +44,10 @@ import com.sosauce.vanilla.core.data.preferences.rememberDecimal
 import com.sosauce.vanilla.core.data.preferences.rememberDecimalPrecision
 import com.sosauce.vanilla.core.data.preferences.rememberDecimalSeparator
 import com.sosauce.vanilla.core.data.preferences.rememberGroupingSeparator
-import com.sosauce.vanilla.ui.screens.settings.components.LazyRowWithScrollButton
-import com.sosauce.vanilla.ui.screens.settings.components.SettingsInput
-import com.sosauce.vanilla.ui.screens.settings.components.SettingsSwitch
-import com.sosauce.vanilla.ui.screens.settings.components.SettingsWithTitle
+import com.sosauce.vanilla.feature.settings.presentation.components.LazyRowWithScrollButton
+import com.sosauce.vanilla.feature.settings.presentation.components.SettingsInput
+import com.sosauce.vanilla.feature.settings.presentation.components.SettingsSwitch
+import com.sosauce.vanilla.feature.settings.presentation.components.SettingsWithTitle
 import com.sosauce.vanilla.core.domain.DecimalSeparator
 import com.sosauce.vanilla.core.domain.GroupingSeparator
 import com.sosauce.vanilla.utils.formatNumber

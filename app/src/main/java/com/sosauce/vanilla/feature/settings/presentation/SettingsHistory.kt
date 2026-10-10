@@ -1,6 +1,6 @@
 @file:OptIn(ExperimentalMaterial3ExpressiveApi::class)
 
-package com.sosauce.vanilla.ui.screens.settings
+package com.sosauce.vanilla.feature.settings.presentation
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material3.ExperimentalMaterial3ExpressiveApi
@@ -12,9 +12,9 @@ import com.sosauce.vanilla.R
 import com.sosauce.vanilla.core.data.preferences.rememberHistoryMaxItems
 import com.sosauce.vanilla.core.data.preferences.rememberSaveErrorsToHistory
 import com.sosauce.vanilla.core.data.preferences.rememberUseHistory
-import com.sosauce.vanilla.ui.screens.settings.components.SettingsInput
-import com.sosauce.vanilla.ui.screens.settings.components.SettingsSwitch
-import com.sosauce.vanilla.ui.screens.settings.components.SettingsWithTitle
+import com.sosauce.vanilla.feature.settings.presentation.components.SettingsInput
+import com.sosauce.vanilla.feature.settings.presentation.components.SettingsSwitch
+import com.sosauce.vanilla.feature.settings.presentation.components.SettingsWithTitle
 
 @Composable
 fun SettingsHistory() {
