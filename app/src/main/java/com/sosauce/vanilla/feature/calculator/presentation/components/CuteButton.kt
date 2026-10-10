@@ -38,9 +38,9 @@ import androidx.compose.ui.semantics.role
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.unit.dp
 import com.sosauce.vanilla.R
-import com.sosauce.vanilla.core.data.preferences.rememberIsLandscape
-import com.sosauce.vanilla.core.data.preferences.rememberUseButtonsAnimation
-import com.sosauce.vanilla.core.data.preferences.rememberVibration
+import com.sosauce.vanilla.core.presentation.rememberIsLandscape
+import com.sosauce.vanilla.core.presentation.rememberUseButtonsAnimation
+import com.sosauce.vanilla.core.presentation.rememberVibration
 import com.sosauce.vanilla.core.domain.BACKSPACE
 import com.sosauce.vanilla.core.domain.PARENTHESES
 

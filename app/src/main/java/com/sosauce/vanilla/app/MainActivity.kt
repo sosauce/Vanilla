@@ -8,8 +8,8 @@ import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.runtime.getValue
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.WindowCompat
-import com.sosauce.vanilla.core.data.preferences.rememberAppTheme
-import com.sosauce.vanilla.core.data.preferences.rememberShowOnLockScreen
+import com.sosauce.vanilla.core.presentation.rememberAppTheme
+import com.sosauce.vanilla.core.presentation.rememberShowOnLockScreen
 import com.sosauce.vanilla.app.navigation.Nav
 import com.sosauce.vanilla.core.designsystem.theme.VanillaTheme
 import com.sosauce.vanilla.core.domain.CuteTheme

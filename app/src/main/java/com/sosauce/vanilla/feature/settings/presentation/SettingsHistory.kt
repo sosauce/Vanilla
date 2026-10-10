@@ -9,9 +9,9 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.unit.dp
 import com.sosauce.vanilla.R
-import com.sosauce.vanilla.core.data.preferences.rememberHistoryMaxItems
-import com.sosauce.vanilla.core.data.preferences.rememberSaveErrorsToHistory
-import com.sosauce.vanilla.core.data.preferences.rememberUseHistory
+import com.sosauce.vanilla.core.presentation.rememberHistoryMaxItems
+import com.sosauce.vanilla.core.presentation.rememberSaveErrorsToHistory
+import com.sosauce.vanilla.core.presentation.rememberUseHistory
 import com.sosauce.vanilla.feature.settings.presentation.components.SettingsInput
 import com.sosauce.vanilla.feature.settings.presentation.components.SettingsSwitch
 import com.sosauce.vanilla.feature.settings.presentation.components.SettingsWithTitle

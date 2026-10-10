@@ -34,11 +34,11 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.sosauce.nekobites.animations.AnimatedCounter
 import com.sosauce.vanilla.feature.calculator.domain.Tokens
-import com.sosauce.vanilla.core.data.preferences.rememberColoredOperators
-import com.sosauce.vanilla.core.data.preferences.rememberDecimal
-import com.sosauce.vanilla.core.data.preferences.rememberDecimalSeparator
-import com.sosauce.vanilla.core.data.preferences.rememberGroupingSeparator
-import com.sosauce.vanilla.core.data.preferences.rememberUseSystemFont
+import com.sosauce.vanilla.core.presentation.rememberColoredOperators
+import com.sosauce.vanilla.core.presentation.rememberDecimal
+import com.sosauce.vanilla.core.presentation.rememberDecimalSeparator
+import com.sosauce.vanilla.core.presentation.rememberGroupingSeparator
+import com.sosauce.vanilla.core.presentation.rememberUseSystemFont
 import com.sosauce.vanilla.feature.calculator.presentation.CalculatorViewModel
 import com.sosauce.vanilla.core.designsystem.theme.nunitoFontFamily
 import com.sosauce.vanilla.utils.formatNumber

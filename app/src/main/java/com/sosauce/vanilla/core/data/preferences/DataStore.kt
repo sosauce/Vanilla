@@ -1,21 +1,17 @@
 package com.sosauce.vanilla.core.data.preferences
 
 import android.content.Context
-import androidx.compose.runtime.Composable
 import androidx.datastore.core.DataMigration
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.booleanPreferencesKey
-import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.intPreferencesKey
 import androidx.datastore.preferences.core.longPreferencesKey
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
 import com.sosauce.vanilla.core.data.preferences.PreferencesKeys.HISTORY_MAX_ITEMS
-import com.sosauce.vanilla.core.domain.CuteTheme
-import com.sosauce.vanilla.core.domain.DecimalSeparator
-import com.sosauce.vanilla.core.domain.GroupingSeparator
-import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
 
 private const val DATA_STORE_NAME = "settings"
 val Context.dataStore: DataStore<Preferences> by preferencesDataStore(
@@ -67,123 +63,18 @@ private object HistoryMaxItemsMigration : DataMigration<Preferences> {
         currentData[LEGACY_HISTORY_MAX_ITEMS_LONG] is Long
 }
 
-@Composable
-fun rememberVibration() =
-    rememberPreference(
-        key = PreferencesKeys.BUTTON_VIBRATION_ENABLED,
-        defaultValue = false
-    )
-
-@Composable
-fun rememberAppTheme() =
-    rememberPreference(
-        key = PreferencesKeys.THEME,
-        defaultValue = CuteTheme.SYSTEM
-    )
-
-@Composable
-fun rememberDecimal() =
-    rememberPreference(
-        key = PreferencesKeys.DECIMAL_FORMATTING,
-        defaultValue = false
-    )
-
-@Composable
-fun rememberUseHistory() =
-    rememberPreference(
-        key = PreferencesKeys.ENABLE_HISTORY,
-        defaultValue = true
-    )
-
-@Composable
-fun rememberUseButtonsAnimation() =
-    rememberPreference(
-        key = PreferencesKeys.USE_BUTTONS_ANIMATIONS,
-        defaultValue = true
-    )
-
-@Composable
-fun rememberUseSystemFont() =
-    rememberPreference(
-        key = PreferencesKeys.USE_SYSTEM_FONT,
-        defaultValue = false
-    )
-
-@Composable
-fun rememberShowClearButton() =
-    rememberPreference(
-        key = PreferencesKeys.SHOW_CLEAR_BUTTON,
-        defaultValue = true
-    )
-
-@Composable
-fun rememberHistoryMaxItems() =
-    rememberPreference(
-        key = HISTORY_MAX_ITEMS,
-        defaultValue = Int.MAX_VALUE
-    )
-
-@Composable
-fun rememberSaveErrorsToHistory() =
-    rememberPreference(
-        key = PreferencesKeys.SAVE_ERRORS_TO_HISTORY,
-        defaultValue = false
-    )
-
-@Composable
-fun rememberDecimalPrecision() =
-    rememberPreference(
-        key = PreferencesKeys.DECIMAL_PRECISION,
-        defaultValue = 100
-    )
-
-@Composable
-fun rememberShowOnLockScreen() =
-    rememberPreference(
-        key = PreferencesKeys.SHOW_ON_LOCKSCREEN,
-        defaultValue = false
-    )
-
-@Composable
-fun rememberHistoryNewestFirst() =
-    rememberPreference(
-        key = PreferencesKeys.HISTORY_NEWEST_FIRST,
-        defaultValue = true
-    )
-
-@Composable
-fun rememberColoredOperators() =
-    rememberPreference(
-        key = PreferencesKeys.COLORED_OPERATORS,
-        defaultValue = true
-    )
-
-@Composable
-fun rememberSwapZeroAndDecimal() =
-    rememberPreference(
-        key = PreferencesKeys.SWAP_ZERO_AND_DECIMAL,
-        defaultValue = false
-    )
-
-@Composable
-fun rememberDecimalSeparator() =
-    rememberPreference(
-        key = PreferencesKeys.DECIMAL_SEPARATOR,
-        defaultValue = DecimalSeparator.SYSTEM
-    )
-
-@Composable
-fun rememberGroupingSeparator() =
-    rememberPreference(
-        key = PreferencesKeys.GROUPING_SEPARATOR,
-        defaultValue = GroupingSeparator.SYSTEM
-    )
+fun <T> getPreference(
+    key: Preferences.Key<T>,
+    defaultValue: T,
+    context: Context
+): Flow<T> =
+    context.dataStore.data
+        .map { preference ->
+            preference[key] ?: defaultValue
+        }
 
 fun getDecimalPrecision(context: Context) = getPreference(
     key = PreferencesKeys.DECIMAL_PRECISION,
     defaultValue = 1000,
     context = context
 )
-
-
-
