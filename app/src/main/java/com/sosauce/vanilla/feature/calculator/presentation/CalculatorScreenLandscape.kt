@@ -1,6 +1,6 @@
 @file:OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterial3ExpressiveApi::class)
 
-package com.sosauce.vanilla.ui.screens.calculator
+package com.sosauce.vanilla.feature.calculator.presentation
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.background
@@ -35,7 +35,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.util.fastForEach
 import androidx.navigation3.runtime.NavKey
 import com.sosauce.vanilla.R
-import com.sosauce.vanilla.data.actions.CalcAction
+import com.sosauce.vanilla.feature.calculator.presentation.CalculatorAction
 import com.sosauce.vanilla.feature.calculator.domain.Tokens
 import com.sosauce.vanilla.core.data.preferences.rememberDecimalSeparator
 import com.sosauce.vanilla.core.data.preferences.rememberGroupingSeparator
@@ -46,10 +46,10 @@ import com.sosauce.vanilla.core.data.preferences.rememberSwapZeroAndDecimal
 import com.sosauce.vanilla.core.data.preferences.rememberUseHistory
 import com.sosauce.vanilla.feature.history.presentation.HistoryEvents
 import com.sosauce.vanilla.app.navigation.SettingsHome
-import com.sosauce.vanilla.ui.screens.calculator.components.ButtonType
-import com.sosauce.vanilla.ui.screens.calculator.components.CalcButton
-import com.sosauce.vanilla.ui.screens.calculator.components.CalculationDisplay
-import com.sosauce.vanilla.ui.screens.calculator.components.CuteButton
+import com.sosauce.vanilla.feature.calculator.presentation.components.ButtonType
+import com.sosauce.vanilla.feature.calculator.presentation.components.CalcButton
+import com.sosauce.vanilla.feature.calculator.presentation.components.CalculationDisplay
+import com.sosauce.vanilla.feature.calculator.presentation.components.CuteButton
 import com.sosauce.vanilla.core.domain.BACKSPACE
 import com.sosauce.vanilla.core.domain.PARENTHESES
 import com.sosauce.vanilla.utils.rememberResolvedSeparators
@@ -78,27 +78,27 @@ fun CalculatorScreenLandscape(
 
 
     fun digit(text: String, token: Char) =
-        KeypadCell(CalcButton(text, { viewModel.handleAction(CalcAction.AddToField(token)) }))
+        KeypadCell(CalcButton(text, { viewModel.handleAction(CalculatorAction.AddToField(token)) }))
 
     val edit1 = if (showClearButton) {
-        CalcButton("C", { viewModel.handleAction(CalcAction.ResetField) }, type = ButtonType.ACTION)
+        CalcButton("C", { viewModel.handleAction(CalculatorAction.ResetField) }, type = ButtonType.ACTION)
     } else {
         CalcButton(
             "(",
-            { viewModel.handleAction(CalcAction.AddToField(Tokens.OPEN_PARENTHESIS)) },
+            { viewModel.handleAction(CalculatorAction.AddToField(Tokens.OPEN_PARENTHESIS)) },
             type = ButtonType.OPERATOR
         )
     }
     val edit2 = if (showClearButton) {
         CalcButton(
             PARENTHESES,
-            { viewModel.handleAction(CalcAction.AddToField(viewModel.textFieldState.text.whichParenthesis())) },
+            { viewModel.handleAction(CalculatorAction.AddToField(viewModel.textFieldState.text.whichParenthesis())) },
             type = ButtonType.OPERATOR
         )
     } else {
         CalcButton(
             ")",
-            { viewModel.handleAction(CalcAction.AddToField(Tokens.CLOSED_PARENTHESIS)) },
+            { viewModel.handleAction(CalculatorAction.AddToField(Tokens.CLOSED_PARENTHESIS)) },
             type = ButtonType.OPERATOR
         )
     }
@@ -108,7 +108,7 @@ fun CalculatorScreenLandscape(
             KeypadCell(
                 CalcButton(
                     "√",
-                    { viewModel.handleAction(CalcAction.AddToField(Tokens.SQUARE_ROOT)) },
+                    { viewModel.handleAction(CalculatorAction.AddToField(Tokens.SQUARE_ROOT)) },
                     type = ButtonType.SPECIAL
                 )
             ),
@@ -118,7 +118,7 @@ fun CalculatorScreenLandscape(
             KeypadCell(
                 CalcButton(
                     "/",
-                    { viewModel.handleAction(CalcAction.AddToField(Tokens.DIVIDE)) },
+                    { viewModel.handleAction(CalculatorAction.AddToField(Tokens.DIVIDE)) },
                     type = ButtonType.OPERATOR
                 )
             ),
@@ -127,7 +127,7 @@ fun CalculatorScreenLandscape(
             KeypadCell(
                 CalcButton(
                     "π",
-                    { viewModel.handleAction(CalcAction.AddToField(Tokens.PI)) },
+                    { viewModel.handleAction(CalculatorAction.AddToField(Tokens.PI)) },
                     type = ButtonType.SPECIAL
                 )
             ),
@@ -137,7 +137,7 @@ fun CalculatorScreenLandscape(
             KeypadCell(
                 CalcButton(
                     "×",
-                    { viewModel.handleAction(CalcAction.AddToField(Tokens.MULTIPLY)) },
+                    { viewModel.handleAction(CalculatorAction.AddToField(Tokens.MULTIPLY)) },
                     type = ButtonType.OPERATOR
                 )
             ),
@@ -146,7 +146,7 @@ fun CalculatorScreenLandscape(
             KeypadCell(
                 CalcButton(
                     "!",
-                    { viewModel.handleAction(CalcAction.AddToField(Tokens.FACTORIAL)) },
+                    { viewModel.handleAction(CalculatorAction.AddToField(Tokens.FACTORIAL)) },
                     type = ButtonType.SPECIAL
                 )
             ),
@@ -156,7 +156,7 @@ fun CalculatorScreenLandscape(
             KeypadCell(
                 CalcButton(
                     "-",
-                    { viewModel.handleAction(CalcAction.AddToField(Tokens.SUBTRACT)) },
+                    { viewModel.handleAction(CalculatorAction.AddToField(Tokens.SUBTRACT)) },
                     type = ButtonType.OPERATOR
                 )
             ),
@@ -165,27 +165,27 @@ fun CalculatorScreenLandscape(
             KeypadCell(
                 CalcButton(
                     "%",
-                    { viewModel.handleAction(CalcAction.AddToField(Tokens.MODULO)) },
+                    { viewModel.handleAction(CalculatorAction.AddToField(Tokens.MODULO)) },
                     type = ButtonType.SPECIAL
                 )
             ),
             KeypadCell(
                 CalcButton(
                     if (!swapZeroAndDecimal) "0" else localeDecimalChar,
-                    { viewModel.handleAction(CalcAction.AddToField(if (!swapZeroAndDecimal) Tokens.ZERO else Tokens.DECIMAL)) }
+                    { viewModel.handleAction(CalculatorAction.AddToField(if (!swapZeroAndDecimal) Tokens.ZERO else Tokens.DECIMAL)) }
                 ),
                 weight = 2f
             ),
             KeypadCell(
                 CalcButton(
                     if (!swapZeroAndDecimal) localeDecimalChar else "0",
-                    { viewModel.handleAction(CalcAction.AddToField(if (!swapZeroAndDecimal) Tokens.DECIMAL else Tokens.ZERO)) }
+                    { viewModel.handleAction(CalculatorAction.AddToField(if (!swapZeroAndDecimal) Tokens.DECIMAL else Tokens.ZERO)) }
                 )
             ),
             KeypadCell(
                 CalcButton(
                     "+",
-                    { viewModel.handleAction(CalcAction.AddToField(Tokens.ADD)) },
+                    { viewModel.handleAction(CalculatorAction.AddToField(Tokens.ADD)) },
                     type = ButtonType.OPERATOR
                 )
             ),
@@ -194,7 +194,7 @@ fun CalculatorScreenLandscape(
             KeypadCell(
                 CalcButton(
                     "^",
-                    { viewModel.handleAction(CalcAction.AddToField(Tokens.POWER)) },
+                    { viewModel.handleAction(CalculatorAction.AddToField(Tokens.POWER)) },
                     type = ButtonType.OPERATOR
                 )
             ),
@@ -202,15 +202,15 @@ fun CalculatorScreenLandscape(
             KeypadCell(
                 CalcButton(
                     BACKSPACE,
-                    { viewModel.handleAction(CalcAction.Backspace) },
-                    onLongClick = { viewModel.handleAction(CalcAction.ResetField) },
+                    { viewModel.handleAction(CalculatorAction.Backspace) },
+                    onLongClick = { viewModel.handleAction(CalculatorAction.ResetField) },
                     type = ButtonType.OTHER
                 )
             ),
             KeypadCell(edit1),
             KeypadCell(CalcButton("=", onClick = {
                 val operation = viewModel.textFieldState.text.toString()
-                viewModel.handleAction(CalcAction.GetResult)
+                viewModel.handleAction(CalculatorAction.GetResult)
                 val result = viewModel.evaluatedCalculation
                 if (saveToHistory && operation != result) {
                     onHandleHistoryEvent(

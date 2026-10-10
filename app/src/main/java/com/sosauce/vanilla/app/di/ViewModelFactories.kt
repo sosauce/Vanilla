@@ -5,7 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.room.Room
 import com.sosauce.vanilla.core.database.HistoryDatabase
-import com.sosauce.vanilla.ui.screens.calculator.CalculatorViewModel
+import com.sosauce.vanilla.feature.calculator.presentation.CalculatorViewModel
 import com.sosauce.vanilla.ui.screens.history.HistoryViewModel
 
 

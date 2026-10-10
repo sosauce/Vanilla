@@ -1,6 +1,6 @@
 @file:OptIn(ExperimentalMaterial3ExpressiveApi::class)
 
-package com.sosauce.vanilla.ui.screens.calculator.components
+package com.sosauce.vanilla.feature.calculator.presentation.components
 
 import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.fadeIn
@@ -39,7 +39,7 @@ import com.sosauce.vanilla.core.data.preferences.rememberDecimal
 import com.sosauce.vanilla.core.data.preferences.rememberDecimalSeparator
 import com.sosauce.vanilla.core.data.preferences.rememberGroupingSeparator
 import com.sosauce.vanilla.core.data.preferences.rememberUseSystemFont
-import com.sosauce.vanilla.ui.screens.calculator.CalculatorViewModel
+import com.sosauce.vanilla.feature.calculator.presentation.CalculatorViewModel
 import com.sosauce.vanilla.core.designsystem.theme.nunitoFontFamily
 import com.sosauce.vanilla.utils.formatNumber
 import com.sosauce.vanilla.utils.isErrorMessage

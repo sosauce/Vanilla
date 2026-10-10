@@ -1,6 +1,6 @@
 @file:OptIn(ExperimentalMaterial3ExpressiveApi::class)
 
-package com.sosauce.vanilla.ui.screens.calculator.components
+package com.sosauce.vanilla.feature.calculator.presentation.components
 
 import androidx.compose.animation.core.animateIntAsState
 import androidx.compose.foundation.background

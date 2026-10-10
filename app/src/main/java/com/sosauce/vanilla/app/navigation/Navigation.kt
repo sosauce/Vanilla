@@ -24,11 +24,11 @@ import androidx.navigation3.runtime.entryProvider
 import androidx.navigation3.runtime.rememberNavBackStack
 import androidx.navigation3.ui.NavDisplay
 import com.sosauce.nekobites.animations.bouncySpec
-import com.sosauce.vanilla.data.actions.CalcAction
+import com.sosauce.vanilla.feature.calculator.presentation.CalculatorAction
 import com.sosauce.vanilla.core.data.preferences.rememberIsLandscape
-import com.sosauce.vanilla.ui.screens.calculator.CalculatorScreen
-import com.sosauce.vanilla.ui.screens.calculator.CalculatorScreenLandscape
-import com.sosauce.vanilla.ui.screens.calculator.CalculatorViewModel
+import com.sosauce.vanilla.feature.calculator.presentation.CalculatorScreen
+import com.sosauce.vanilla.feature.calculator.presentation.CalculatorScreenLandscape
+import com.sosauce.vanilla.feature.calculator.presentation.CalculatorViewModel
 import com.sosauce.vanilla.ui.screens.history.HistoryScreen
 import com.sosauce.vanilla.ui.screens.history.HistoryViewModel
 import com.sosauce.vanilla.ui.screens.settings.SettingsFormatting
@@ -139,7 +139,7 @@ private fun MainDestination(
             calculations = calculations,
             onEvents = historyViewModel::handleHistoryEvent,
             onPutBackToField = { expression ->
-                viewModel.handleAction(CalcAction.AddExpressionToField(expression))
+                viewModel.handleAction(CalculatorAction.AddExpressionToField(expression))
             },
             onGotoMain = {
                 scope.launch {

@@ -1,6 +1,6 @@
 @file:OptIn(FlowPreview::class)
 
-package com.sosauce.vanilla.ui.screens.calculator
+package com.sosauce.vanilla.feature.calculator.presentation
 
 import android.app.Application
 import androidx.compose.foundation.text.input.TextFieldState
@@ -13,7 +13,7 @@ import androidx.compose.runtime.snapshotFlow
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import com.notkamui.keval.KevalInvalidExpressionException
-import com.sosauce.vanilla.data.actions.CalcAction
+import com.sosauce.vanilla.feature.calculator.presentation.CalculatorAction
 import com.sosauce.vanilla.feature.calculator.domain.Evaluator
 import com.sosauce.vanilla.core.data.preferences.getDecimalPrecision
 import com.sosauce.vanilla.utils.backspace
@@ -72,16 +72,16 @@ class CalculatorViewModel(
         }
     }
 
-    fun handleAction(action: CalcAction) {
+    fun handleAction(action: CalculatorAction) {
         when (action) {
-            is CalcAction.GetResult -> {
+            is CalculatorAction.GetResult -> {
                 textFieldState.setTextAndPlaceCursorAtEnd(evaluatedCalculation)
             }
 
-            is CalcAction.AddToField -> textFieldState.insertText(action.char)
-            is CalcAction.ResetField -> textFieldState.clearText()
-            is CalcAction.Backspace -> textFieldState.backspace()
-            is CalcAction.AddExpressionToField -> textFieldState.setTextAndPlaceCursorAtEnd(action.expression)
+            is CalculatorAction.AddToField -> textFieldState.insertText(action.char)
+            is CalculatorAction.ResetField -> textFieldState.clearText()
+            is CalculatorAction.Backspace -> textFieldState.backspace()
+            is CalculatorAction.AddExpressionToField -> textFieldState.setTextAndPlaceCursorAtEnd(action.expression)
         }
     }
 
