@@ -1,45 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="theme">Kujundus</string>
     <string name="settings">Seadistused</string>
     <string name="dark_mode">Tume kujundus</string>
     <string name="light_mode">Hele kujundus</string>
     <string name="amoled_mode">Amoled-kujundus</string>
-    <string name="version">Versioon</string>
-    <string name="update">Kontrolli uuendusi</string>
-    <string name="cc_by_sosauce">Vanilla arendajalt sosauce</string>
-    <string name="follow_sys">Süsteemi kujundus</string>
-    <string name="font">Kirjatüüp</string>
     <string name="system">Süsteemi määratud</string>
     <string name="buttons_anim">Nuppude animatsioon</string>
     <string name="history">Ajalugu</string>
-    <string name="use_history">Salvesta ajalugu</string>
     <string name="history_not_enabled">Tundub, et sa pole ajaloo sisestamise sisse lülitanud!</string>
     <string name="enable_history">Lülita ajaloo salvestamine sisse</string>
     <string name="misc">Varia</string>
     <string name="haptic_feedback">Haptiline tagasiside</string>
-    <string name="ascending">Järjesta kasvavalt</string>
-    <string name="descending">Järjesta kahanevalt</string>
     <string name="decimal_formatting">Komakoha vormindus</string>
-    <string name="sort">Järjestus</string>
     <string name="delete">Kustuta</string>
     <string name="look_and_feel">Välimus ja tunnetus</string>
     <string name="look_and_feel_desc">Aga saaksid ju arvutada stiilselt?</string>
-    <string name="ui">Kasutajaliides</string>
-    <string name="show_back_button">Näita tagasi-nuppu</string>
     <string name="cancel">Katkesta</string>
-    <string name="support">Kasutajatugi</string>
     <string name="show_clear_button">Näita tühjenda-nuppu</string>
     <string name="clear_button_desc">Sellele vaatamata võid tagasisammuklahvi pika vajutusega kustutada sisestusvälja sisu.</string>
     <string name="back">Tagasi</string>
-    <string name="backspace">Tagasisammuklahv (Backspace)</string>
     <string name="put_field">Pane tagasi sisendiväljale</string>
     <string name="copy">Kopeeri lõikelauale</string>
-    <string name="more_actions">Täiendavad tegevused</string>
-    <string name="default_font">Vaikimisi</string>
     <string name="history_desc">Jätad kõik meelde!</string>
     <string name="max_history_items">Ajaloos salvestatud kirjete ülempiir</string>
-    <string name="no_limit">Piirang puudub</string>
     <string name="misc_desc">Kõik muud seadistused, millel oma lehte pole vaja.</string>
     <string name="formatting">Vormindus</string>
     <string name="clear_history">Kustuta ajalugu</string>
@@ -52,8 +35,6 @@
     <string name="show_ls_desc">See rakendus on kasutatav lukustusvaates. Seda on näiteks mugav poes pruukida.</string>
     <string name="newest_first">Esmalt uuemad</string>
     <string name="oldest_first">Esmalt vanemad</string>
-    <string name="no_calc_found">Arvutust ei leidu!</string>
-    <string name="calc_empty">No hakka juba arvutama midagi!</string>
     <string name="colored_operatos">Värvilised tehtemärgid</string>
     <string name="swap_zero_and_decimal">Vaheta null ja komakoht</string>
 </resources>
