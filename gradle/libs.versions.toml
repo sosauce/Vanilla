@@ -15,6 +15,7 @@ squircleShape = "5.4.0"
 nekobites = "1.0.6"
 nav3Core = "1.2.0"
 kotlinxSerializationCore = "1.11.0"
+koin = "4.2.2"
 
 
 [libraries]
@@ -33,6 +34,9 @@ nekobites = { module = "com.github.sosauce:NekoBites", version.ref = "nekobites"
 androidx-navigation3-runtime = { module = "androidx.navigation3:navigation3-runtime", version.ref = "nav3Core" }
 androidx-navigation3-ui = { module = "androidx.navigation3:navigation3-ui", version.ref = "nav3Core" }
 kotlinx-serialization-core = { module = "org.jetbrains.kotlinx:kotlinx-serialization-core", version.ref = "kotlinxSerializationCore" }
+koin-bom = { module = "io.insert-koin:koin-bom", version.ref = "koin" }
+koin-android = { module = "io.insert-koin:koin-android" }
+koin-compose-viewmodel = { module = "io.insert-koin:koin-compose-viewmodel" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
