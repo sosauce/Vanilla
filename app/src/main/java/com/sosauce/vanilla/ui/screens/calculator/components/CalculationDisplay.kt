@@ -40,7 +40,7 @@ import com.sosauce.vanilla.data.datastore.rememberDecimalSeparator
 import com.sosauce.vanilla.data.datastore.rememberGroupingSeparator
 import com.sosauce.vanilla.data.datastore.rememberUseSystemFont
 import com.sosauce.vanilla.ui.screens.calculator.CalculatorViewModel
-import com.sosauce.vanilla.ui.theme.nunitoFontFamily
+import com.sosauce.vanilla.core.designsystem.theme.nunitoFontFamily
 import com.sosauce.vanilla.utils.formatNumber
 import com.sosauce.vanilla.utils.isErrorMessage
 import com.sosauce.vanilla.utils.rememberResolvedSeparators

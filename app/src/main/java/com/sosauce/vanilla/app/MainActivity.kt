@@ -11,7 +11,7 @@ import androidx.core.view.WindowCompat
 import com.sosauce.vanilla.data.datastore.rememberAppTheme
 import com.sosauce.vanilla.data.datastore.rememberShowOnLockScreen
 import com.sosauce.vanilla.app.navigation.Nav
-import com.sosauce.vanilla.ui.theme.VanillaTheme
+import com.sosauce.vanilla.core.designsystem.theme.VanillaTheme
 import com.sosauce.vanilla.core.domain.CuteTheme
 import com.sosauce.vanilla.utils.showOnLockScreen
 
