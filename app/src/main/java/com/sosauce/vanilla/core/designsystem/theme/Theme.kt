@@ -17,8 +17,6 @@ import com.sosauce.vanilla.R
 import com.sosauce.vanilla.core.presentation.rememberAppTheme
 import com.sosauce.vanilla.core.presentation.rememberUseSystemFont
 import com.sosauce.vanilla.core.domain.CuteTheme
-import com.sosauce.vanilla.core.designsystem.theme.anyDarkColorScheme
-import com.sosauce.vanilla.core.designsystem.theme.anyLightColorScheme
 
 @Composable
 fun VanillaTheme(

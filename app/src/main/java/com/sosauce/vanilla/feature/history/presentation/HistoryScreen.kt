@@ -60,12 +60,10 @@ import com.sosauce.vanilla.core.presentation.rememberColoredOperators
 import com.sosauce.vanilla.core.presentation.rememberHistoryNewestFirst
 import com.sosauce.vanilla.core.presentation.rememberUseHistory
 import com.sosauce.vanilla.feature.history.domain.Calculation
-import com.sosauce.vanilla.feature.history.presentation.HistoryEvents
 import com.sosauce.vanilla.feature.history.presentation.components.DeletionConfirmationDialog
 import com.sosauce.vanilla.feature.history.presentation.components.HistoryActionButtons
 import com.sosauce.vanilla.core.domain.isErrorMessage
 import com.sosauce.vanilla.core.domain.isOperator
-import com.sosauce.vanilla.feature.history.presentation.sort
 
 @Composable
 fun HistoryScreen(

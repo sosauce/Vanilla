@@ -1,5 +1,3 @@
-@file:OptIn(FlowPreview::class)
-
 package com.sosauce.vanilla.feature.calculator.presentation
 
 import android.app.Application
@@ -13,12 +11,8 @@ import androidx.compose.runtime.snapshotFlow
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import com.notkamui.keval.KevalInvalidExpressionException
-import com.sosauce.vanilla.feature.calculator.presentation.CalculatorAction
 import com.sosauce.vanilla.feature.calculator.domain.Evaluator
 import com.sosauce.vanilla.core.data.preferences.getDecimalPrecision
-import com.sosauce.vanilla.feature.calculator.presentation.backspace
-import com.sosauce.vanilla.feature.calculator.presentation.insertText
-import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.collectLatest
