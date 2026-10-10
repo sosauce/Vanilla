@@ -1,4 +1,4 @@
-package com.sosauce.vanilla.data.datastore
+package com.sosauce.vanilla.core.data.preferences
 
 import android.content.Context
 import androidx.compose.runtime.Composable
@@ -11,7 +11,7 @@ import androidx.datastore.preferences.core.intPreferencesKey
 import androidx.datastore.preferences.core.longPreferencesKey
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
-import com.sosauce.vanilla.data.datastore.PreferencesKeys.HISTORY_MAX_ITEMS
+import com.sosauce.vanilla.core.data.preferences.PreferencesKeys.HISTORY_MAX_ITEMS
 import com.sosauce.vanilla.core.domain.CuteTheme
 import com.sosauce.vanilla.core.domain.DecimalSeparator
 import com.sosauce.vanilla.core.domain.GroupingSeparator

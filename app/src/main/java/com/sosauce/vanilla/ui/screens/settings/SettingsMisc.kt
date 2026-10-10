@@ -6,7 +6,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.unit.dp
 import com.sosauce.vanilla.R
-import com.sosauce.vanilla.data.datastore.rememberShowOnLockScreen
+import com.sosauce.vanilla.core.data.preferences.rememberShowOnLockScreen
 import com.sosauce.vanilla.ui.screens.settings.components.SettingsSwitch
 import com.sosauce.vanilla.ui.screens.settings.components.SettingsWithTitle
 

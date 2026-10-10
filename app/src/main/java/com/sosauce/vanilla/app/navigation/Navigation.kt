@@ -25,7 +25,7 @@ import androidx.navigation3.runtime.rememberNavBackStack
 import androidx.navigation3.ui.NavDisplay
 import com.sosauce.nekobites.animations.bouncySpec
 import com.sosauce.vanilla.data.actions.CalcAction
-import com.sosauce.vanilla.data.datastore.rememberIsLandscape
+import com.sosauce.vanilla.core.data.preferences.rememberIsLandscape
 import com.sosauce.vanilla.ui.screens.calculator.CalculatorScreen
 import com.sosauce.vanilla.ui.screens.calculator.CalculatorScreenLandscape
 import com.sosauce.vanilla.ui.screens.calculator.CalculatorViewModel

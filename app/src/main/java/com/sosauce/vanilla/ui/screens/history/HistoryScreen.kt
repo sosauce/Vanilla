@@ -58,10 +58,10 @@ import com.sosauce.nekobites.animations.AnimatedDrawableFile
 import com.sosauce.nekobites.animations.AnimatedFab
 import com.sosauce.nekobites.components.NoXFound
 import com.sosauce.vanilla.R
-import com.sosauce.vanilla.data.datastore.rememberColoredOperators
-import com.sosauce.vanilla.data.datastore.rememberDecimal
-import com.sosauce.vanilla.data.datastore.rememberHistoryNewestFirst
-import com.sosauce.vanilla.data.datastore.rememberUseHistory
+import com.sosauce.vanilla.core.data.preferences.rememberColoredOperators
+import com.sosauce.vanilla.core.data.preferences.rememberDecimal
+import com.sosauce.vanilla.core.data.preferences.rememberHistoryNewestFirst
+import com.sosauce.vanilla.core.data.preferences.rememberUseHistory
 import com.sosauce.vanilla.core.database.Calculation
 import com.sosauce.vanilla.feature.history.presentation.HistoryEvents
 import com.sosauce.vanilla.ui.screens.history.components.DeletionConfirmationDialog

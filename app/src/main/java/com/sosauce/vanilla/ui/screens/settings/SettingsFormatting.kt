@@ -40,10 +40,10 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.ui.util.fastForEachIndexed
 import com.sosauce.nekobites.components.Spacer
 import com.sosauce.vanilla.R
-import com.sosauce.vanilla.data.datastore.rememberDecimal
-import com.sosauce.vanilla.data.datastore.rememberDecimalPrecision
-import com.sosauce.vanilla.data.datastore.rememberDecimalSeparator
-import com.sosauce.vanilla.data.datastore.rememberGroupingSeparator
+import com.sosauce.vanilla.core.data.preferences.rememberDecimal
+import com.sosauce.vanilla.core.data.preferences.rememberDecimalPrecision
+import com.sosauce.vanilla.core.data.preferences.rememberDecimalSeparator
+import com.sosauce.vanilla.core.data.preferences.rememberGroupingSeparator
 import com.sosauce.vanilla.ui.screens.settings.components.LazyRowWithScrollButton
 import com.sosauce.vanilla.ui.screens.settings.components.SettingsInput
 import com.sosauce.vanilla.ui.screens.settings.components.SettingsSwitch

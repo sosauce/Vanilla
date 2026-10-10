@@ -28,7 +28,7 @@ import androidx.compose.ui.unit.dp
 import com.sosauce.nekobites.animations.AnimatedDrawable
 import com.sosauce.nekobites.animations.AnimatedDrawableFile
 import com.sosauce.vanilla.R
-import com.sosauce.vanilla.data.datastore.rememberHistoryNewestFirst
+import com.sosauce.vanilla.core.data.preferences.rememberHistoryNewestFirst
 
 @Composable
 fun HistoryActionButtons(

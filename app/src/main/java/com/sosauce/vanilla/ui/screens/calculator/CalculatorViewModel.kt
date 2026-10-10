@@ -15,7 +15,7 @@ import androidx.lifecycle.viewModelScope
 import com.notkamui.keval.KevalInvalidExpressionException
 import com.sosauce.vanilla.data.actions.CalcAction
 import com.sosauce.vanilla.data.calculator.Evaluator
-import com.sosauce.vanilla.data.datastore.getDecimalPrecision
+import com.sosauce.vanilla.core.data.preferences.getDecimalPrecision
 import com.sosauce.vanilla.utils.backspace
 import com.sosauce.vanilla.utils.insertText
 import com.sosauce.vanilla.utils.isErrorMessage

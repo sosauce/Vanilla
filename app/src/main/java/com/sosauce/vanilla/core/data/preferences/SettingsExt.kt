@@ -1,4 +1,4 @@
-package com.sosauce.vanilla.data.datastore
+package com.sosauce.vanilla.core.data.preferences
 
 import android.content.Context
 import android.content.res.Configuration
