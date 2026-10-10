@@ -5,7 +5,7 @@ import androidx.lifecycle.viewModelScope
 import com.sosauce.vanilla.core.database.Calculation
 import com.sosauce.vanilla.core.database.HistoryDao
 import com.sosauce.vanilla.feature.history.presentation.HistoryEvents
-import com.sosauce.vanilla.utils.isErrorMessage
+import com.sosauce.vanilla.core.domain.isErrorMessage
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.mapLatest

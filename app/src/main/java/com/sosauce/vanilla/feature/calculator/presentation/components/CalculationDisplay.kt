@@ -41,9 +41,9 @@ import com.sosauce.vanilla.core.presentation.rememberGroupingSeparator
 import com.sosauce.vanilla.core.presentation.rememberUseSystemFont
 import com.sosauce.vanilla.feature.calculator.presentation.CalculatorViewModel
 import com.sosauce.vanilla.core.designsystem.theme.nunitoFontFamily
-import com.sosauce.vanilla.utils.formatNumber
-import com.sosauce.vanilla.utils.isErrorMessage
-import com.sosauce.vanilla.utils.rememberResolvedSeparators
+import com.sosauce.vanilla.core.domain.formatNumber
+import com.sosauce.vanilla.core.domain.isErrorMessage
+import com.sosauce.vanilla.core.presentation.rememberResolvedSeparators
 
 @Composable
 fun CalculationDisplay(

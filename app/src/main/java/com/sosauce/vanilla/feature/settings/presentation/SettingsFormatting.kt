@@ -50,9 +50,9 @@ import com.sosauce.vanilla.feature.settings.presentation.components.SettingsSwit
 import com.sosauce.vanilla.feature.settings.presentation.components.SettingsWithTitle
 import com.sosauce.vanilla.core.domain.DecimalSeparator
 import com.sosauce.vanilla.core.domain.GroupingSeparator
-import com.sosauce.vanilla.utils.formatNumber
-import com.sosauce.vanilla.utils.rememberResolvedSeparators
-import com.sosauce.vanilla.utils.rememberSeparatorSymbols
+import com.sosauce.vanilla.core.domain.formatNumber
+import com.sosauce.vanilla.core.presentation.rememberResolvedSeparators
+import com.sosauce.vanilla.core.presentation.rememberSeparatorSymbols
 
 @Composable
 fun SettingsFormatting() {

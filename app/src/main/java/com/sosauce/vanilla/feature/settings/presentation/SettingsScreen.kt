@@ -28,7 +28,7 @@ import com.sosauce.vanilla.app.navigation.LookAndFeel
 import com.sosauce.vanilla.app.navigation.Misc
 import com.sosauce.vanilla.feature.settings.presentation.components.AboutCard
 import com.sosauce.vanilla.feature.settings.presentation.components.SettingsCategoryCard
-import com.sosauce.vanilla.utils.selfAlignHorizontally
+import com.sosauce.vanilla.core.presentation.selfAlignHorizontally
 import kotlin.uuid.ExperimentalUuidApi
 import kotlin.uuid.Uuid
 

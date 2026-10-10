@@ -13,7 +13,7 @@ import com.sosauce.vanilla.core.presentation.rememberShowOnLockScreen
 import com.sosauce.vanilla.app.navigation.Nav
 import com.sosauce.vanilla.core.designsystem.theme.VanillaTheme
 import com.sosauce.vanilla.core.domain.CuteTheme
-import com.sosauce.vanilla.utils.showOnLockScreen
+import com.sosauce.vanilla.core.presentation.showOnLockScreen
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

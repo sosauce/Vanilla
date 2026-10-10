@@ -16,9 +16,9 @@ import com.notkamui.keval.KevalInvalidExpressionException
 import com.sosauce.vanilla.feature.calculator.presentation.CalculatorAction
 import com.sosauce.vanilla.feature.calculator.domain.Evaluator
 import com.sosauce.vanilla.core.data.preferences.getDecimalPrecision
-import com.sosauce.vanilla.utils.backspace
-import com.sosauce.vanilla.utils.insertText
-import com.sosauce.vanilla.utils.isErrorMessage
+import com.sosauce.vanilla.feature.calculator.presentation.backspace
+import com.sosauce.vanilla.feature.calculator.presentation.insertText
+import com.sosauce.vanilla.core.domain.isErrorMessage
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.flow.MutableStateFlow

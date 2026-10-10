@@ -66,9 +66,9 @@ import com.sosauce.vanilla.core.database.Calculation
 import com.sosauce.vanilla.feature.history.presentation.HistoryEvents
 import com.sosauce.vanilla.feature.history.presentation.components.DeletionConfirmationDialog
 import com.sosauce.vanilla.feature.history.presentation.components.HistoryActionButtons
-import com.sosauce.vanilla.utils.isErrorMessage
-import com.sosauce.vanilla.utils.isOperator
-import com.sosauce.vanilla.utils.sort
+import com.sosauce.vanilla.core.domain.isErrorMessage
+import com.sosauce.vanilla.core.domain.isOperator
+import com.sosauce.vanilla.feature.history.presentation.sort
 
 @Composable
 fun HistoryScreen(

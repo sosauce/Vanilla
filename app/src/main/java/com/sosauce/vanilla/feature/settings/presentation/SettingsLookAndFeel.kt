@@ -34,8 +34,8 @@ import com.sosauce.vanilla.feature.settings.presentation.components.SettingsSwit
 import com.sosauce.vanilla.feature.settings.presentation.components.SettingsWithTitle
 import com.sosauce.vanilla.core.designsystem.theme.nunitoFontFamily
 import com.sosauce.vanilla.core.domain.CuteTheme
-import com.sosauce.vanilla.utils.anyDarkColorScheme
-import com.sosauce.vanilla.utils.anyLightColorScheme
+import com.sosauce.vanilla.core.designsystem.theme.anyDarkColorScheme
+import com.sosauce.vanilla.core.designsystem.theme.anyLightColorScheme
 
 @Composable
 fun SettingsLookAndFeel() {

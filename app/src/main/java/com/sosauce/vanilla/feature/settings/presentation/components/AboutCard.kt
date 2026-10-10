@@ -28,7 +28,7 @@ import androidx.compose.ui.unit.dp
 import com.sosauce.vanilla.R
 import com.sosauce.vanilla.core.domain.GITHUB_RELEASES
 import com.sosauce.vanilla.core.domain.SUPPORT_PAGE
-import com.sosauce.vanilla.utils.appVersion
+import com.sosauce.vanilla.core.presentation.appVersion
 import sv.lib.squircleshape.CornerSmoothing
 import sv.lib.squircleshape.SquircleShape
 

@@ -52,8 +52,8 @@ import com.sosauce.vanilla.feature.calculator.presentation.components.Calculatio
 import com.sosauce.vanilla.feature.calculator.presentation.components.CuteButton
 import com.sosauce.vanilla.core.domain.BACKSPACE
 import com.sosauce.vanilla.core.domain.PARENTHESES
-import com.sosauce.vanilla.utils.rememberResolvedSeparators
-import com.sosauce.vanilla.utils.whichParenthesis
+import com.sosauce.vanilla.core.presentation.rememberResolvedSeparators
+import com.sosauce.vanilla.core.domain.whichParenthesis
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
