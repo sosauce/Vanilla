@@ -1,4 +1,4 @@
-package com.sosauce.vanilla.data.calculator
+package com.sosauce.vanilla.feature.calculator.domain
 
 import com.notkamui.keval.BigDecimal
 import com.notkamui.keval.Keval

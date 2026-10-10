@@ -36,7 +36,7 @@ import androidx.compose.ui.util.fastForEach
 import androidx.navigation3.runtime.NavKey
 import com.sosauce.vanilla.R
 import com.sosauce.vanilla.data.actions.CalcAction
-import com.sosauce.vanilla.data.calculator.Tokens
+import com.sosauce.vanilla.feature.calculator.domain.Tokens
 import com.sosauce.vanilla.core.data.preferences.rememberDecimalSeparator
 import com.sosauce.vanilla.core.data.preferences.rememberGroupingSeparator
 import com.sosauce.vanilla.core.data.preferences.rememberHistoryMaxItems
