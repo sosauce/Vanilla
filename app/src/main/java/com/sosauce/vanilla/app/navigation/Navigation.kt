@@ -18,7 +18,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.platform.LocalWindowInfo
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation3.runtime.NavKey
 import androidx.navigation3.runtime.entryProvider
 import androidx.navigation3.runtime.rememberNavBackStack
@@ -37,19 +36,16 @@ import com.sosauce.vanilla.feature.settings.presentation.SettingsLookAndFeel
 import com.sosauce.vanilla.feature.settings.presentation.SettingsMisc
 import com.sosauce.vanilla.feature.settings.presentation.SettingsDetailScaffold
 import com.sosauce.vanilla.feature.settings.presentation.SettingsHomeScreen
-import com.sosauce.vanilla.app.di.CalculatorViewModelFactory
-import com.sosauce.vanilla.app.di.HistoryViewModelFactory
 import kotlinx.coroutines.launch
+import org.koin.compose.viewmodel.koinViewModel
 import kotlin.math.roundToInt
 
 @Composable
 fun Nav() {
     val activity = LocalActivity.current!!
     val isLandscape = rememberIsLandscape()
-    val viewModel =
-        viewModel<CalculatorViewModel>(factory = CalculatorViewModelFactory(activity.application))
-    val historyViewModel =
-        viewModel<HistoryViewModel>(factory = HistoryViewModelFactory(activity.application))
+    val viewModel: CalculatorViewModel = koinViewModel()
+    val historyViewModel: HistoryViewModel = koinViewModel()
 
     val backStack = rememberNavBackStack(Main)
 
