@@ -1,4 +1,4 @@
-package com.sosauce.vanilla.feature.calculator.domain
+package com.sosauce.vanilla.core.domain
 
 object Tokens {
     const val ONE = '1'

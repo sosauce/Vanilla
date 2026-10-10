@@ -25,7 +25,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.IntOffset
 import com.sosauce.vanilla.core.domain.DecimalSeparator
 import com.sosauce.vanilla.core.domain.GroupingSeparator
-import com.sosauce.vanilla.feature.calculator.domain.Tokens
+import com.sosauce.vanilla.core.domain.Tokens
 import com.sosauce.vanilla.core.database.Calculation
 import java.text.DecimalFormatSymbols
 

@@ -33,7 +33,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.sosauce.nekobites.animations.AnimatedCounter
-import com.sosauce.vanilla.feature.calculator.domain.Tokens
+import com.sosauce.vanilla.core.domain.Tokens
 import com.sosauce.vanilla.core.presentation.rememberColoredOperators
 import com.sosauce.vanilla.core.presentation.rememberDecimal
 import com.sosauce.vanilla.core.presentation.rememberDecimalSeparator
