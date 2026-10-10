@@ -48,8 +48,8 @@ import com.sosauce.vanilla.ui.screens.settings.components.LazyRowWithScrollButto
 import com.sosauce.vanilla.ui.screens.settings.components.SettingsInput
 import com.sosauce.vanilla.ui.screens.settings.components.SettingsSwitch
 import com.sosauce.vanilla.ui.screens.settings.components.SettingsWithTitle
-import com.sosauce.vanilla.utils.DecimalSeparator
-import com.sosauce.vanilla.utils.GroupingSeparator
+import com.sosauce.vanilla.core.domain.DecimalSeparator
+import com.sosauce.vanilla.core.domain.GroupingSeparator
 import com.sosauce.vanilla.utils.formatNumber
 import com.sosauce.vanilla.utils.rememberResolvedSeparators
 import com.sosauce.vanilla.utils.rememberSeparatorSymbols

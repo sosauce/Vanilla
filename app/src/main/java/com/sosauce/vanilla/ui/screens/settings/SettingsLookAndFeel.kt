@@ -33,7 +33,7 @@ import com.sosauce.vanilla.ui.screens.settings.components.SettingsSelector
 import com.sosauce.vanilla.ui.screens.settings.components.SettingsSwitch
 import com.sosauce.vanilla.ui.screens.settings.components.SettingsWithTitle
 import com.sosauce.vanilla.ui.theme.nunitoFontFamily
-import com.sosauce.vanilla.utils.CuteTheme
+import com.sosauce.vanilla.core.domain.CuteTheme
 import com.sosauce.vanilla.utils.anyDarkColorScheme
 import com.sosauce.vanilla.utils.anyLightColorScheme
 

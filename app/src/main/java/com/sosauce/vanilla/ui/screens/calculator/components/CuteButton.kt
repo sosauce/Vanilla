@@ -41,8 +41,8 @@ import com.sosauce.vanilla.R
 import com.sosauce.vanilla.data.datastore.rememberIsLandscape
 import com.sosauce.vanilla.data.datastore.rememberUseButtonsAnimation
 import com.sosauce.vanilla.data.datastore.rememberVibration
-import com.sosauce.vanilla.utils.BACKSPACE
-import com.sosauce.vanilla.utils.PARENTHESES
+import com.sosauce.vanilla.core.domain.BACKSPACE
+import com.sosauce.vanilla.core.domain.PARENTHESES
 
 @Composable
 fun CuteButton(

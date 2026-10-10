@@ -1,4 +1,4 @@
-package com.sosauce.vanilla.utils
+package com.sosauce.vanilla.core.domain
 const val GITHUB_RELEASES = "https://github.com/sosauce/Vanilla/releases"
 const val SUPPORT_PAGE = "https://sosauce.github.io/support/"
 const val BACKSPACE = "backspace"

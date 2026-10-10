@@ -26,8 +26,8 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.sosauce.vanilla.R
-import com.sosauce.vanilla.utils.GITHUB_RELEASES
-import com.sosauce.vanilla.utils.SUPPORT_PAGE
+import com.sosauce.vanilla.core.domain.GITHUB_RELEASES
+import com.sosauce.vanilla.core.domain.SUPPORT_PAGE
 import com.sosauce.vanilla.utils.appVersion
 import sv.lib.squircleshape.CornerSmoothing
 import sv.lib.squircleshape.SquircleShape

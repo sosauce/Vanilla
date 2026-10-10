@@ -16,7 +16,7 @@ import androidx.compose.ui.text.font.FontWeight
 import com.sosauce.vanilla.R
 import com.sosauce.vanilla.data.datastore.rememberAppTheme
 import com.sosauce.vanilla.data.datastore.rememberUseSystemFont
-import com.sosauce.vanilla.utils.CuteTheme
+import com.sosauce.vanilla.core.domain.CuteTheme
 import com.sosauce.vanilla.utils.anyDarkColorScheme
 import com.sosauce.vanilla.utils.anyLightColorScheme
 

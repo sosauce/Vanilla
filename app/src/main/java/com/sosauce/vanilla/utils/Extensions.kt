@@ -23,6 +23,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.IntOffset
+import com.sosauce.vanilla.core.domain.DecimalSeparator
+import com.sosauce.vanilla.core.domain.GroupingSeparator
 import com.sosauce.vanilla.data.calculator.Tokens
 import com.sosauce.vanilla.domain.model.Calculation
 import java.text.DecimalFormatSymbols

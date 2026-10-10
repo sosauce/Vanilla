@@ -50,8 +50,8 @@ import com.sosauce.vanilla.ui.screens.calculator.components.ButtonType
 import com.sosauce.vanilla.ui.screens.calculator.components.CalcButton
 import com.sosauce.vanilla.ui.screens.calculator.components.CalculationDisplay
 import com.sosauce.vanilla.ui.screens.calculator.components.CuteButton
-import com.sosauce.vanilla.utils.BACKSPACE
-import com.sosauce.vanilla.utils.PARENTHESES
+import com.sosauce.vanilla.core.domain.BACKSPACE
+import com.sosauce.vanilla.core.domain.PARENTHESES
 import com.sosauce.vanilla.utils.rememberResolvedSeparators
 import com.sosauce.vanilla.utils.whichParenthesis
 

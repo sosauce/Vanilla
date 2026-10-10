@@ -12,9 +12,9 @@ import androidx.datastore.preferences.core.longPreferencesKey
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
 import com.sosauce.vanilla.data.datastore.PreferencesKeys.HISTORY_MAX_ITEMS
-import com.sosauce.vanilla.utils.CuteTheme
-import com.sosauce.vanilla.utils.DecimalSeparator
-import com.sosauce.vanilla.utils.GroupingSeparator
+import com.sosauce.vanilla.core.domain.CuteTheme
+import com.sosauce.vanilla.core.domain.DecimalSeparator
+import com.sosauce.vanilla.core.domain.GroupingSeparator
 import kotlinx.coroutines.flow.first
 
 private const val DATA_STORE_NAME = "settings"
