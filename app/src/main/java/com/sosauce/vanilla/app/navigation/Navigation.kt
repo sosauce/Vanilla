@@ -29,8 +29,8 @@ import com.sosauce.vanilla.core.data.preferences.rememberIsLandscape
 import com.sosauce.vanilla.feature.calculator.presentation.CalculatorScreen
 import com.sosauce.vanilla.feature.calculator.presentation.CalculatorScreenLandscape
 import com.sosauce.vanilla.feature.calculator.presentation.CalculatorViewModel
-import com.sosauce.vanilla.ui.screens.history.HistoryScreen
-import com.sosauce.vanilla.ui.screens.history.HistoryViewModel
+import com.sosauce.vanilla.feature.history.presentation.HistoryScreen
+import com.sosauce.vanilla.feature.history.presentation.HistoryViewModel
 import com.sosauce.vanilla.ui.screens.settings.SettingsFormatting
 import com.sosauce.vanilla.ui.screens.settings.SettingsHistory
 import com.sosauce.vanilla.ui.screens.settings.SettingsLookAndFeel

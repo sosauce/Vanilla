@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.room.Room
 import com.sosauce.vanilla.core.database.HistoryDatabase
 import com.sosauce.vanilla.feature.calculator.presentation.CalculatorViewModel
-import com.sosauce.vanilla.ui.screens.history.HistoryViewModel
+import com.sosauce.vanilla.feature.history.presentation.HistoryViewModel
 
 
 class HistoryViewModelFactory(val application: Application) : ViewModelProvider.Factory {

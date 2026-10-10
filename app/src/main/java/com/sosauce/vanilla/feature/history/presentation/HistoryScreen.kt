@@ -1,6 +1,6 @@
 @file:OptIn(ExperimentalMaterial3ExpressiveApi::class)
 
-package com.sosauce.vanilla.ui.screens.history
+package com.sosauce.vanilla.feature.history.presentation
 
 import android.content.ClipData
 import androidx.compose.foundation.basicMarquee
@@ -64,8 +64,8 @@ import com.sosauce.vanilla.core.data.preferences.rememberHistoryNewestFirst
 import com.sosauce.vanilla.core.data.preferences.rememberUseHistory
 import com.sosauce.vanilla.core.database.Calculation
 import com.sosauce.vanilla.feature.history.presentation.HistoryEvents
-import com.sosauce.vanilla.ui.screens.history.components.DeletionConfirmationDialog
-import com.sosauce.vanilla.ui.screens.history.components.HistoryActionButtons
+import com.sosauce.vanilla.feature.history.presentation.components.DeletionConfirmationDialog
+import com.sosauce.vanilla.feature.history.presentation.components.HistoryActionButtons
 import com.sosauce.vanilla.utils.isErrorMessage
 import com.sosauce.vanilla.utils.isOperator
 import com.sosauce.vanilla.utils.sort

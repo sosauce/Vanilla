@@ -1,4 +1,4 @@
-package com.sosauce.vanilla.ui.screens.history
+package com.sosauce.vanilla.feature.history.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

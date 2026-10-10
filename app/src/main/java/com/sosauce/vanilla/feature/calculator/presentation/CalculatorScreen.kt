@@ -52,7 +52,7 @@ import com.sosauce.vanilla.feature.calculator.presentation.components.ButtonType
 import com.sosauce.vanilla.feature.calculator.presentation.components.CalcButton
 import com.sosauce.vanilla.feature.calculator.presentation.components.CalculationDisplay
 import com.sosauce.vanilla.feature.calculator.presentation.components.CuteButton
-import com.sosauce.vanilla.ui.screens.history.HistoryViewModel
+import com.sosauce.vanilla.feature.history.presentation.HistoryViewModel
 import com.sosauce.vanilla.core.domain.BACKSPACE
 import com.sosauce.vanilla.core.domain.PARENTHESES
 import com.sosauce.vanilla.utils.rememberResolvedSeparators

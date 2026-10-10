@@ -1,6 +1,6 @@
 @file:OptIn(ExperimentalMaterial3ExpressiveApi::class)
 
-package com.sosauce.vanilla.ui.screens.history.components
+package com.sosauce.vanilla.feature.history.presentation.components
 
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.ButtonDefaults
