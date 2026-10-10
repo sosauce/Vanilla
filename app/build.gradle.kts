@@ -32,8 +32,8 @@ android {
         applicationId = "com.sosauce.cutecalc"
         minSdk = 24
         targetSdk = 37
-        versionCode = 50006
-        versionName = "4.2.1"
+        versionCode = 50007
+        versionName = "4.2.2"
         ndk {
             //noinspection ChromeOsAbiSupport
             abiFilters += arrayOf("arm64-v8a", "armeabi-v7a")
