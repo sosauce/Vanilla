@@ -35,6 +35,7 @@ fun SettingsSelector(
     icon: Int,
     text: Int,
     isSelected: Boolean,
+    enabled: Boolean = true,
     containerColor: Color = MaterialTheme.colorScheme.surfaceContainerHigh,
     contentColor: Color = contentColorFor(MaterialTheme.colorScheme.surfaceContainerHigh)
 ) {
@@ -43,7 +44,9 @@ fun SettingsSelector(
         targetValue = if (isSelected) MaterialTheme.colorScheme.secondary else Color.Transparent,
     )
     val textColor by animateColorAsState(
-        targetValue = if (isSelected) MaterialTheme.colorScheme.secondary else MaterialTheme.colorScheme.onSurface,
+        targetValue = if (!enabled) MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.38f)
+        else if (isSelected) MaterialTheme.colorScheme.secondary
+        else MaterialTheme.colorScheme.onSurface,
     )
 
     Column(
@@ -51,7 +54,10 @@ fun SettingsSelector(
             .padding(10.dp)
             .height(100.dp)
             .clip(RoundedCornerShape(12.dp))
-            .clickable(onClick = onClick),
+            .clickable(
+                enabled = enabled,
+                onClick = onClick
+            ),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Box(

@@ -64,4 +64,13 @@
     <string name="enter_value_between_range">Enter a value between %1$d and %2$d</string>
     <string name="empty_history">History is empty!</string>
     <string name="empty_history_desc">2 + 2 = 4, I guess</string>
+    <string name="decimal_separator">Decimal separator</string>
+    <string name="grouping_separator">Grouping separator</string>
+    <string name="grouping_separator_desc">Cannot be the same as the decimal separator.</string>
+    <string name="separator_system_default">System default</string>
+    <string name="separator_dot">Dot</string>
+    <string name="separator_comma">Comma</string>
+    <string name="separator_space">Space</string>
+    <string name="separator_apostrophe">Apostrophe</string>
+    <string name="separator_none">None</string>
 </resources>

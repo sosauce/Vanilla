@@ -13,6 +13,8 @@ import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
 import com.sosauce.vanilla.data.datastore.PreferencesKeys.HISTORY_MAX_ITEMS
 import com.sosauce.vanilla.utils.CuteTheme
+import com.sosauce.vanilla.utils.DecimalSeparator
+import com.sosauce.vanilla.utils.GroupingSeparator
 import kotlinx.coroutines.flow.first
 
 private const val DATA_STORE_NAME = "settings"
@@ -38,6 +40,8 @@ data object PreferencesKeys {
     val HISTORY_NEWEST_FIRST = booleanPreferencesKey("HISTORY_NEWEST_FIRST")
     val COLORED_OPERATORS = booleanPreferencesKey("COLORED_OPERATORS")
     val SWAP_ZERO_AND_DECIMAL = booleanPreferencesKey("SWAP_ZERO_AND_DECIMAL")
+    val DECIMAL_SEPARATOR = stringPreferencesKey("decimal_separator")
+    val GROUPING_SEPARATOR = stringPreferencesKey("grouping_separator")
 }
 
 
@@ -159,6 +163,20 @@ fun rememberSwapZeroAndDecimal() =
     rememberPreference(
         key = PreferencesKeys.SWAP_ZERO_AND_DECIMAL,
         defaultValue = false
+    )
+
+@Composable
+fun rememberDecimalSeparator() =
+    rememberPreference(
+        key = PreferencesKeys.DECIMAL_SEPARATOR,
+        defaultValue = DecimalSeparator.SYSTEM
+    )
+
+@Composable
+fun rememberGroupingSeparator() =
+    rememberPreference(
+        key = PreferencesKeys.GROUPING_SEPARATOR,
+        defaultValue = GroupingSeparator.SYSTEM
     )
 
 fun getDecimalPrecision(context: Context) = getPreference(

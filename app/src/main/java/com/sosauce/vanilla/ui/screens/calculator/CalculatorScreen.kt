@@ -28,7 +28,6 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.key
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -40,6 +39,8 @@ import androidx.navigation3.runtime.NavKey
 import com.sosauce.vanilla.R
 import com.sosauce.vanilla.data.actions.CalcAction
 import com.sosauce.vanilla.data.calculator.Tokens
+import com.sosauce.vanilla.data.datastore.rememberDecimalSeparator
+import com.sosauce.vanilla.data.datastore.rememberGroupingSeparator
 import com.sosauce.vanilla.data.datastore.rememberHistoryMaxItems
 import com.sosauce.vanilla.data.datastore.rememberSaveErrorsToHistory
 import com.sosauce.vanilla.data.datastore.rememberShowClearButton
@@ -54,9 +55,9 @@ import com.sosauce.vanilla.ui.screens.calculator.components.CuteButton
 import com.sosauce.vanilla.ui.screens.history.HistoryViewModel
 import com.sosauce.vanilla.utils.BACKSPACE
 import com.sosauce.vanilla.utils.PARENTHESES
+import com.sosauce.vanilla.utils.rememberResolvedSeparators
 import com.sosauce.vanilla.utils.whichParenthesis
 import kotlinx.coroutines.CoroutineScope
-import java.text.DecimalFormatSymbols
 
 
 @Composable
@@ -68,8 +69,12 @@ fun CalculatorScreen(
     onUpdateDragAmount: (Float) -> Unit,
     onDragStopped: suspend CoroutineScope.(Float) -> Unit
 ) {
-    val localeDecimalChar =
-        remember { DecimalFormatSymbols.getInstance().decimalSeparator.toString() }
+    val decimalPreference by rememberDecimalSeparator()
+    val groupingPreference by rememberGroupingSeparator()
+    val localeDecimalChar = rememberResolvedSeparators(
+        decimalPreference = decimalPreference,
+        groupingPreference = groupingPreference
+    ).first.toString()
     val showClearButton by rememberShowClearButton()
     val saveErrorsToHistory by rememberSaveErrorsToHistory()
     val maxItemsToHistory by rememberHistoryMaxItems()

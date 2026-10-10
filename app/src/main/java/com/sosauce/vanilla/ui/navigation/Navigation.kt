@@ -27,7 +27,7 @@ import com.sosauce.nekobites.animations.bouncySpec
 import com.sosauce.vanilla.data.actions.CalcAction
 import com.sosauce.vanilla.data.datastore.rememberIsLandscape
 import com.sosauce.vanilla.ui.screens.calculator.CalculatorScreen
-import com.sosauce.vanilla.ui.screens.calculator.CalculatorScreenLandscape2
+import com.sosauce.vanilla.ui.screens.calculator.CalculatorScreenLandscape
 import com.sosauce.vanilla.ui.screens.calculator.CalculatorViewModel
 import com.sosauce.vanilla.ui.screens.history.HistoryScreen
 import com.sosauce.vanilla.ui.screens.history.HistoryViewModel
@@ -123,12 +123,12 @@ fun Nav() {
 }
 
 @Composable
-private fun MainDestination(    isLandscape: Boolean,
+private fun MainDestination(
+    isLandscape: Boolean,
     viewModel: CalculatorViewModel,
     historyViewModel: HistoryViewModel,
     onNavigate: (NavKey) -> Unit
 ) {
-    // survive config changes without needing a saver
     val yTranslation = retain { Animatable(0f) }
     val scope = rememberCoroutineScope()
     val windowInfo = LocalWindowInfo.current
@@ -149,7 +149,7 @@ private fun MainDestination(    isLandscape: Boolean,
         )
 
         if (isLandscape) {
-            CalculatorScreenLandscape2(
+            CalculatorScreenLandscape(
                 modifier = Modifier
                     .graphicsLayer {
                         translationY = yTranslation.value

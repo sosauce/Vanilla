@@ -10,3 +10,18 @@ object CuteTheme {
     const val LIGHT = "LIGHT"
     const val AMOLED = "AMOLED"
 }
+
+object DecimalSeparator {
+    const val SYSTEM = "SYSTEM"
+    const val DOT = "DOT"
+    const val COMMA = "COMMA"
+}
+
+object GroupingSeparator {
+    const val SYSTEM = "SYSTEM"
+    const val COMMA = "COMMA"
+    const val DOT = "DOT"
+    const val SPACE = "SPACE"
+    const val APOSTROPHE = "APOSTROPHE"
+    const val NONE = "NONE"
+}

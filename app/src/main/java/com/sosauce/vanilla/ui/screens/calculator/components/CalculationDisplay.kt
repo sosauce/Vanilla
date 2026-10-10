@@ -36,11 +36,14 @@ import com.sosauce.nekobites.animations.AnimatedCounter
 import com.sosauce.vanilla.data.calculator.Tokens
 import com.sosauce.vanilla.data.datastore.rememberColoredOperators
 import com.sosauce.vanilla.data.datastore.rememberDecimal
+import com.sosauce.vanilla.data.datastore.rememberDecimalSeparator
+import com.sosauce.vanilla.data.datastore.rememberGroupingSeparator
 import com.sosauce.vanilla.data.datastore.rememberUseSystemFont
 import com.sosauce.vanilla.ui.screens.calculator.CalculatorViewModel
 import com.sosauce.vanilla.ui.theme.nunitoFontFamily
 import com.sosauce.vanilla.utils.formatNumber
 import com.sosauce.vanilla.utils.isErrorMessage
+import com.sosauce.vanilla.utils.rememberResolvedSeparators
 
 @Composable
 fun CalculationDisplay(
@@ -50,6 +53,12 @@ fun CalculationDisplay(
 
     val useSystemFont by rememberUseSystemFont()
     val shouldFormat by rememberDecimal()
+    val decimalPreference by rememberDecimalSeparator()
+    val groupingPreference by rememberGroupingSeparator()
+    val (decimalSeparator, groupingSeparator) = rememberResolvedSeparators(
+        decimalPreference = decimalPreference,
+        groupingPreference = groupingPreference
+    )
     val scrollState = rememberScrollState()
     val previewScrollState = rememberScrollState()
     val previewCanShowErrors by viewModel.previewShowErrors.collectAsStateWithLifecycle()
@@ -82,7 +91,11 @@ fun CalculationDisplay(
             )
         } else {
             Text(
-                text = viewModel.evaluatedCalculation.formatNumber(shouldFormat),
+                text = viewModel.evaluatedCalculation.formatNumber(
+                    shouldFormat = shouldFormat,
+                    decimalSeparator = decimalSeparator,
+                    groupingSeparator = groupingSeparator
+                ),
                 style = MaterialTheme.typography.displayMediumEmphasized.copy(
                     textAlign = TextAlign.End,
                     color = MaterialTheme.colorScheme.tertiary
@@ -109,7 +122,9 @@ fun CalculationDisplay(
                 outputTransformation = CalculatorOutputTransform(
                     format = shouldFormat,
                     coloredOperators = coloredOperators,
-                    operatorColor = MaterialTheme.colorScheme.primary
+                    operatorColor = MaterialTheme.colorScheme.primary,
+                    decimalSeparator = decimalSeparator,
+                    groupingSeparator = groupingSeparator
                 )
             )
         }
@@ -119,7 +134,9 @@ fun CalculationDisplay(
 class CalculatorOutputTransform(
     private val format: Boolean,
     private val coloredOperators: Boolean,
-    private val operatorColor: Color
+    private val operatorColor: Color,
+    private val decimalSeparator: Char,
+    private val groupingSeparator: Char?
 ) : OutputTransformation {
 
     override fun TextFieldBuffer.transformOutput() {
@@ -135,7 +152,11 @@ class CalculatorOutputTransform(
                 val start = match.range.first + shift
                 val end = match.range.last + 1 + shift
                 val number = match.value
-                val formatted = number.formatNumber(true)
+                val formatted = number.formatNumber(
+                    shouldFormat = true,
+                    decimalSeparator = decimalSeparator,
+                    groupingSeparator = groupingSeparator
+                )
 
                 replace(start, end, formatted)
                 shift += formatted.length - number.length

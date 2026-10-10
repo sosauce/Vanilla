@@ -17,8 +17,10 @@ import androidx.compose.material3.dynamicDarkColorScheme
 import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.IntOffset
 import com.sosauce.vanilla.data.calculator.Tokens
@@ -142,24 +144,77 @@ fun CharSequence.whichParenthesis(): Char {
 
 /**
  * Formats a number not an expression !!
+ *
+ * The expression itself always stays in its canonical form ('.' decimal, no
+ * grouping), only the displayed text is mapped to the chosen separators.
  */
-fun String.formatNumber(shouldFormat: Boolean): String {
+fun String.formatNumber(
+    shouldFormat: Boolean,
+    decimalSeparator: Char = DecimalFormatSymbols.getInstance().decimalSeparator,
+    groupingSeparator: Char? = DecimalFormatSymbols.getInstance().groupingSeparator
+): String {
     val number = this
-    val localSymbols = DecimalFormatSymbols.getInstance()
 
     if (number.any { it.isLetter() } || !shouldFormat) return number
 
     val integer = number.takeWhile { it != '.' }
-    val decimal = number.removePrefix(integer).replace('.', localSymbols.decimalSeparator)
+    val decimal = number.removePrefix(integer).replace('.', decimalSeparator)
+    val grouping = groupingSeparator?.takeIf { it != decimalSeparator }
 
     // 1234
-    val formattedInteger = integer
-        .reversed() // 4321
-        .chunked(3) // [432, 1]
-        .joinToString(localSymbols.groupingSeparator.toString()) // 432,1
-        .reversed() // 1,234
+    val formattedInteger = if (grouping == null) {
+        integer
+    } else {
+        integer
+            .reversed() // 4321
+            .chunked(3) // [432, 1]
+            .joinToString(grouping.toString()) // 432,1
+            .reversed() // 1,234
+    }
 
     return "${formattedInteger}${decimal}"
+}
+
+fun String.toDecimalChar(symbols: DecimalFormatSymbols): Char =
+    when (this) {
+        DecimalSeparator.DOT -> '.'
+        DecimalSeparator.COMMA -> ','
+        else -> symbols.decimalSeparator
+    }
+
+fun String.toGroupingChar(symbols: DecimalFormatSymbols): Char? =
+    when (this) {
+        GroupingSeparator.NONE -> null
+        GroupingSeparator.COMMA -> ','
+        GroupingSeparator.DOT -> '.'
+        GroupingSeparator.SPACE -> ' '
+        GroupingSeparator.APOSTROPHE -> '\''
+        else -> symbols.groupingSeparator
+    }
+
+@Composable
+fun rememberSeparatorSymbols(): DecimalFormatSymbols {
+    val locale = LocalConfiguration.current.locales[0]
+    return remember(locale) {
+        DecimalFormatSymbols.getInstance(locale)
+    }
+}
+
+@Composable
+fun rememberResolvedSeparators(
+    decimalPreference: String,
+    groupingPreference: String
+): Pair<Char, Char?> {
+    val symbols = rememberSeparatorSymbols()
+
+    val decimalSeparator = remember(decimalPreference, symbols) {
+        decimalPreference.toDecimalChar(symbols)
+    }
+    val groupingSeparator = remember(groupingPreference, symbols) {
+        groupingPreference.toGroupingChar(symbols)
+    }
+
+    return decimalSeparator to groupingSeparator
 }
 
 

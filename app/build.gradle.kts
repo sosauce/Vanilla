@@ -29,7 +29,6 @@ android {
     compileSdk = 37
 
     defaultConfig {
-
         applicationId = "com.sosauce.cutecalc"
         minSdk = 24
         targetSdk = 37
