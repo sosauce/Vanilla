@@ -10,14 +10,14 @@ import kotlinx.coroutines.flow.Flow
 interface HistoryDao {
 
     @Insert
-    suspend fun insertCalculation(calculation: Calculation)
+    suspend fun insertCalculation(calculation: CalculationEntity)
 
     @Delete
-    suspend fun deleteCalculation(calculation: Calculation)
+    suspend fun deleteCalculation(calculation: CalculationEntity)
 
     @Query("DELETE FROM calculation")
     suspend fun deleteAllCalculations()
 
     @Query("SELECT * FROM calculation ORDER BY id ASC")
-    fun getAllCalculations(): Flow<List<Calculation>>
+    fun getAllCalculations(): Flow<List<CalculationEntity>>
 }

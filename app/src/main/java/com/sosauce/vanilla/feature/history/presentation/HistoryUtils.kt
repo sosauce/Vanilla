@@ -1,6 +1,6 @@
 package com.sosauce.vanilla.feature.history.presentation
 
-import com.sosauce.vanilla.core.database.Calculation
+import com.sosauce.vanilla.feature.history.domain.Calculation
 
 fun List<Calculation>.sort(
     newestFirst: Boolean

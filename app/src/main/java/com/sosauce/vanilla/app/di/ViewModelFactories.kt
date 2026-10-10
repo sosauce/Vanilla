@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.room.Room
 import com.sosauce.vanilla.core.database.HistoryDatabase
+import com.sosauce.vanilla.core.database.RoomHistoryDataSource
 import com.sosauce.vanilla.feature.calculator.presentation.CalculatorViewModel
 import com.sosauce.vanilla.feature.history.presentation.HistoryViewModel
 
@@ -19,7 +20,7 @@ class HistoryViewModelFactory(val application: Application) : ViewModelProvider.
     }
 
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        return HistoryViewModel(historyDb.dao) as T
+        return HistoryViewModel(RoomHistoryDataSource(historyDb.dao)) as T
     }
 }
 

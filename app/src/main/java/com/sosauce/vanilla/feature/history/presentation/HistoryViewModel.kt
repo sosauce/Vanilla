@@ -2,26 +2,20 @@ package com.sosauce.vanilla.feature.history.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.sosauce.vanilla.core.database.Calculation
-import com.sosauce.vanilla.core.database.HistoryDao
-import com.sosauce.vanilla.feature.history.presentation.HistoryEvents
 import com.sosauce.vanilla.core.domain.isErrorMessage
+import com.sosauce.vanilla.feature.history.domain.Calculation
+import com.sosauce.vanilla.feature.history.domain.HistoryLocalDataSource
 import kotlinx.coroutines.flow.SharingStarted
-import kotlinx.coroutines.flow.combine
-import kotlinx.coroutines.flow.mapLatest
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 
 class HistoryViewModel(
-    private val dao: HistoryDao,
+    private val localDataSource: HistoryLocalDataSource,
 ) : ViewModel() {
 
 
 
-    val allCalculations = dao.getAllCalculations()
-//        .mapLatest {
-//            //TODO  asc/desc logic here
-//        }
+    val allCalculations = localDataSource.observeCalculations()
         .stateIn(
             viewModelScope,
             SharingStarted.WhileSubscribed(5000),
@@ -40,9 +34,9 @@ class HistoryViewModel(
                 if (event.saveErrors || !event.result.isErrorMessage()) {
                     viewModelScope.launch {
                         if (allCalculations.value.size == event.maxHistoryItems) {
-                            dao.deleteCalculation(allCalculations.value.first())
+                            localDataSource.deleteCalculation(allCalculations.value.first())
                         }
-                        dao.insertCalculation(calculation)
+                        localDataSource.insertCalculation(calculation)
                     }
                 } else {
                     return
@@ -51,11 +45,11 @@ class HistoryViewModel(
             }
 
             is HistoryEvents.DeleteCalculation -> {
-                viewModelScope.launch { dao.deleteCalculation(event.calculation) }
+                viewModelScope.launch { localDataSource.deleteCalculation(event.calculation) }
             }
 
             is HistoryEvents.DeleteAllCalculation -> {
-                viewModelScope.launch { dao.deleteAllCalculations() }
+                viewModelScope.launch { localDataSource.deleteAllCalculations() }
             }
         }
     }
