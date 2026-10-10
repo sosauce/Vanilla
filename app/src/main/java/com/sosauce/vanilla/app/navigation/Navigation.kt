@@ -1,4 +1,4 @@
-package com.sosauce.vanilla.ui.navigation
+package com.sosauce.vanilla.app.navigation
 
 import androidx.activity.compose.LocalActivity
 import androidx.compose.animation.ContentTransform
@@ -37,8 +37,8 @@ import com.sosauce.vanilla.ui.screens.settings.SettingsLookAndFeel
 import com.sosauce.vanilla.ui.screens.settings.SettingsMisc
 import com.sosauce.vanilla.ui.screens.settings.SettingsDetailScaffold
 import com.sosauce.vanilla.ui.screens.settings.SettingsHomeScreen
-import com.sosauce.vanilla.utils.CalculatorViewModelFactory
-import com.sosauce.vanilla.utils.HistoryViewModelFactory
+import com.sosauce.vanilla.app.di.CalculatorViewModelFactory
+import com.sosauce.vanilla.app.di.HistoryViewModelFactory
 import kotlinx.coroutines.launch
 import kotlin.math.roundToInt
 

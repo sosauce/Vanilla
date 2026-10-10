@@ -1,4 +1,4 @@
-package com.sosauce.vanilla.utils
+package com.sosauce.vanilla.app.di
 
 import android.app.Application
 import androidx.lifecycle.ViewModel

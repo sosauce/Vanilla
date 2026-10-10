@@ -1,4 +1,4 @@
-package com.sosauce.vanilla
+package com.sosauce.vanilla.app
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -10,7 +10,7 @@ import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.WindowCompat
 import com.sosauce.vanilla.data.datastore.rememberAppTheme
 import com.sosauce.vanilla.data.datastore.rememberShowOnLockScreen
-import com.sosauce.vanilla.ui.navigation.Nav
+import com.sosauce.vanilla.app.navigation.Nav
 import com.sosauce.vanilla.ui.theme.VanillaTheme
 import com.sosauce.vanilla.utils.CuteTheme
 import com.sosauce.vanilla.utils.showOnLockScreen

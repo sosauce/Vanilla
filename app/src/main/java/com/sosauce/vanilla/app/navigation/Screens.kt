@@ -1,4 +1,4 @@
-package com.sosauce.vanilla.ui.navigation
+package com.sosauce.vanilla.app.navigation
 
 import androidx.navigation3.runtime.NavKey
 import kotlinx.serialization.Serializable

@@ -22,10 +22,10 @@ import androidx.compose.ui.util.fastForEachIndexed
 import androidx.navigation3.runtime.NavKey
 import com.sosauce.nekobites.animations.AnimatedFab
 import com.sosauce.vanilla.R
-import com.sosauce.vanilla.ui.navigation.Formatting
-import com.sosauce.vanilla.ui.navigation.HistorySettings
-import com.sosauce.vanilla.ui.navigation.LookAndFeel
-import com.sosauce.vanilla.ui.navigation.Misc
+import com.sosauce.vanilla.app.navigation.Formatting
+import com.sosauce.vanilla.app.navigation.HistorySettings
+import com.sosauce.vanilla.app.navigation.LookAndFeel
+import com.sosauce.vanilla.app.navigation.Misc
 import com.sosauce.vanilla.ui.screens.settings.components.AboutCard
 import com.sosauce.vanilla.ui.screens.settings.components.SettingsCategoryCard
 import com.sosauce.vanilla.utils.selfAlignHorizontally

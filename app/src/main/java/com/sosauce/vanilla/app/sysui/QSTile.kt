@@ -1,11 +1,11 @@
-package com.sosauce.vanilla.data.sysui
+package com.sosauce.vanilla.app.sysui
 
 import android.app.PendingIntent
 import android.content.Intent
 import android.os.Build
 import android.service.quicksettings.TileService
 import androidx.annotation.RequiresApi
-import com.sosauce.vanilla.MainActivity
+import com.sosauce.vanilla.app.MainActivity
 
 @RequiresApi(Build.VERSION_CODES.N)
 class QSTile : TileService() {
