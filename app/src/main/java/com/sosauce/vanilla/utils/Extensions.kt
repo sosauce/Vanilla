@@ -26,7 +26,7 @@ import androidx.compose.ui.unit.IntOffset
 import com.sosauce.vanilla.core.domain.DecimalSeparator
 import com.sosauce.vanilla.core.domain.GroupingSeparator
 import com.sosauce.vanilla.data.calculator.Tokens
-import com.sosauce.vanilla.domain.model.Calculation
+import com.sosauce.vanilla.core.database.Calculation
 import java.text.DecimalFormatSymbols
 
 

@@ -2,9 +2,9 @@ package com.sosauce.vanilla.ui.screens.history
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.sosauce.vanilla.domain.model.Calculation
-import com.sosauce.vanilla.domain.repository.HistoryDao
-import com.sosauce.vanilla.domain.repository.HistoryEvents
+import com.sosauce.vanilla.core.database.Calculation
+import com.sosauce.vanilla.core.database.HistoryDao
+import com.sosauce.vanilla.feature.history.presentation.HistoryEvents
 import com.sosauce.vanilla.utils.isErrorMessage
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.combine

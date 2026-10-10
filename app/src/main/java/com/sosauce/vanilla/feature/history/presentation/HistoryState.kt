@@ -1,8 +1,8 @@
-package com.sosauce.vanilla.domain.repository
+package com.sosauce.vanilla.feature.history.presentation
 
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
-import com.sosauce.vanilla.domain.model.Calculation
+import com.sosauce.vanilla.core.database.Calculation
 
 data class HistoryState(
     val calculations: List<Calculation> = emptyList(),

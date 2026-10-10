@@ -1,4 +1,4 @@
-package com.sosauce.vanilla.domain.model
+package com.sosauce.vanilla.core.database
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

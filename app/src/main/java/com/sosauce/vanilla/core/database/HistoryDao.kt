@@ -1,10 +1,9 @@
-package com.sosauce.vanilla.domain.repository
+package com.sosauce.vanilla.core.database
 
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
-import com.sosauce.vanilla.domain.model.Calculation
 import kotlinx.coroutines.flow.Flow
 
 @Dao

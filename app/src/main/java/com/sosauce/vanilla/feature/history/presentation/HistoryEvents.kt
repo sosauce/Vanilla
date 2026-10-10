@@ -1,6 +1,6 @@
-package com.sosauce.vanilla.domain.repository
+package com.sosauce.vanilla.feature.history.presentation
 
-import com.sosauce.vanilla.domain.model.Calculation
+import com.sosauce.vanilla.core.database.Calculation
 
 sealed interface HistoryEvents {
 

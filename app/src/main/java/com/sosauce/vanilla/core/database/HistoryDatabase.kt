@@ -1,8 +1,7 @@
-package com.sosauce.vanilla.domain.repository
+package com.sosauce.vanilla.core.database
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import com.sosauce.vanilla.domain.model.Calculation
 
 @Database(
     entities = [Calculation::class],

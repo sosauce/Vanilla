@@ -46,7 +46,7 @@ import com.sosauce.vanilla.data.datastore.rememberSaveErrorsToHistory
 import com.sosauce.vanilla.data.datastore.rememberShowClearButton
 import com.sosauce.vanilla.data.datastore.rememberSwapZeroAndDecimal
 import com.sosauce.vanilla.data.datastore.rememberUseHistory
-import com.sosauce.vanilla.domain.repository.HistoryEvents
+import com.sosauce.vanilla.feature.history.presentation.HistoryEvents
 import com.sosauce.vanilla.app.navigation.SettingsHome
 import com.sosauce.vanilla.ui.screens.calculator.components.ButtonType
 import com.sosauce.vanilla.ui.screens.calculator.components.CalcButton

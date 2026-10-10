@@ -62,8 +62,8 @@ import com.sosauce.vanilla.data.datastore.rememberColoredOperators
 import com.sosauce.vanilla.data.datastore.rememberDecimal
 import com.sosauce.vanilla.data.datastore.rememberHistoryNewestFirst
 import com.sosauce.vanilla.data.datastore.rememberUseHistory
-import com.sosauce.vanilla.domain.model.Calculation
-import com.sosauce.vanilla.domain.repository.HistoryEvents
+import com.sosauce.vanilla.core.database.Calculation
+import com.sosauce.vanilla.feature.history.presentation.HistoryEvents
 import com.sosauce.vanilla.ui.screens.history.components.DeletionConfirmationDialog
 import com.sosauce.vanilla.ui.screens.history.components.HistoryActionButtons
 import com.sosauce.vanilla.utils.isErrorMessage
