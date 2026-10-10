@@ -1,22 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="theme">‌پوسته</string>
     <string name="settings">تنظیمات</string>
     <string name="dark_mode">تیره</string>
     <string name="light_mode">روشن</string>
     <string name="amoled_mode">امولد</string>
-    <string name="version">نسخه</string>
-    <string name="support">پشتیبانی</string>
-    <string name="update">بررسی بروزرسانی ها</string>
     <string name="misc">متفرقه</string>
     <string name="system">سیستم</string>
-    <string name="ascending">صعودی</string>
-    <string name="descending">نزولی</string>
     <string name="delete">حذف</string>
-    <string name="ui">رابط کاربری</string>
-    <string name="sort">مرتب کردن</string>
     <string name="look_and_feel">نگاه و احساس کردن</string>
-    <string name="font">فونت</string>
-    <string name="show_back_button">نمایش دکمه بازگشت</string>
     <string name="cancel">لغو</string>
 </resources>
