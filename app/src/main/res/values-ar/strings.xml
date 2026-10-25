@@ -55,4 +55,6 @@
     <string name="no_calc_found">لم يتم العثور على أي عملية حسابية!</string>
     <string name="calc_empty">ابدأ الحساب الآن!</string>
     <string name="swap_zero_and_decimal">تبديل الصفر والفاصلة العشرية</string>
+    <string name="enter_new_value">أدخل قيمة جديدة</string>
+    <string name="enter_value_between_range">أدخل قيمة بين %1$d و %2$d</string>
 </resources>
