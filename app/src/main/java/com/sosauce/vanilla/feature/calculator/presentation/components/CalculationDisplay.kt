@@ -18,6 +18,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor
@@ -33,7 +34,6 @@ import com.sosauce.vanilla.core.presentation.rememberDecimalSeparator
 import com.sosauce.vanilla.core.presentation.rememberGroupingSeparator
 import com.sosauce.vanilla.core.presentation.rememberUseSystemFont
 import com.sosauce.vanilla.feature.calculator.presentation.CalculatorViewModel
-import com.sosauce.vanilla.core.designsystem.theme.nunitoFontFamily
 import com.sosauce.vanilla.core.domain.formatNumber
 import com.sosauce.vanilla.core.domain.isErrorMessage
 import com.sosauce.vanilla.core.presentation.rememberResolvedSeparators
@@ -65,6 +65,17 @@ fun CalculationDisplay(
         previewScrollState.animateScrollTo(previewScrollState.maxValue)
     }
 
+
+    val operatorColor = MaterialTheme.colorScheme.primary
+    val outputTransformation = remember(shouldFormat, coloredOperators, operatorColor, decimalSeparator, groupingSeparator) {
+        CalculatorOutputTransform(
+            format = shouldFormat,
+            coloredOperators = coloredOperators,
+            operatorColor = operatorColor,
+            decimalSeparator = decimalSeparator,
+            groupingSeparator = groupingSeparator
+        )
+    }
 
     Column(
         modifier = modifier.padding(5.dp),
@@ -106,19 +117,12 @@ fun CalculationDisplay(
                 textStyle = MaterialTheme.typography.displayMediumEmphasized.copy(
                     textAlign = TextAlign.End,
                     color = MaterialTheme.colorScheme.onSurface,
-                    fontFamily = if (!useSystemFont) nunitoFontFamily else null,
-                    fontWeight = FontWeight.ExtraBold
+                    fontWeight = if (useSystemFont) FontWeight.ExtraBold else null
                 ),
                 modifier = Modifier.fillMaxWidth(),
                 cursorBrush = SolidColor(MaterialTheme.colorScheme.primary),
                 scrollState = scrollState,
-                outputTransformation = CalculatorOutputTransform(
-                    format = shouldFormat,
-                    coloredOperators = coloredOperators,
-                    operatorColor = MaterialTheme.colorScheme.primary,
-                    decimalSeparator = decimalSeparator,
-                    groupingSeparator = groupingSeparator
-                )
+                outputTransformation = outputTransformation
             )
         }
     }

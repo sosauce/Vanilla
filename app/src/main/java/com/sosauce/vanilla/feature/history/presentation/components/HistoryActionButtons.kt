@@ -3,12 +3,14 @@
 package com.sosauce.vanilla.feature.history.presentation.components
 
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.DropdownMenuGroup
 import androidx.compose.material3.DropdownMenuPopup
 import androidx.compose.material3.ExperimentalMaterial3ExpressiveApi
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.IconButtonDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.MenuDefaults
 import androidx.compose.material3.SelectableDropdownMenuItem
@@ -36,68 +38,66 @@ fun HistoryActionButtons(
     var dropDownExpanded by remember { mutableStateOf(false) }
     var newestFirst by rememberHistoryNewestFirst()
 
-
     Surface(
         modifier = modifier,
-        shape = RoundedCornerShape(14.dp),
-        shadowElevation = 5.dp,
-        color =  MaterialTheme.colorScheme.surfaceContainerHigh
+        shape = CircleShape,
+        color = MaterialTheme.colorScheme.surfaceContainer
     ) {
-        Row {
+        Row(modifier = Modifier.padding(4.dp)) {
             IconButton(
-                onClick = { dropDownExpanded = true }
+                onClick = { dropDownExpanded = true },
+                shapes = IconButtonDefaults.shapes()
             ) {
                 AnimatedDrawable(
-                    drawable = AnimatedDrawableFile.MORE_VERT,
+                    drawable = AnimatedDrawableFile.SORT,
                     atEnd = dropDownExpanded
                 )
+
+                DropdownMenuPopup(
+                    expanded = dropDownExpanded,
+                    onDismissRequest = { dropDownExpanded = false }
+                ) {
+                    DropdownMenuGroup(shapes = MenuDefaults.groupShapes()) {
+                        SelectableDropdownMenuItem(
+                            selected = newestFirst,
+                            onClick = { newestFirst = true },
+                            text = { Text(stringResource(R.string.newest_first)) },
+                            trailingContent = {
+                                if (newestFirst) {
+                                    Icon(
+                                        painter = painterResource(R.drawable.check),
+                                        contentDescription = null
+                                    )
+                                }
+                            },
+                            shapes = MenuDefaults.itemShape(0, 2)
+                        )
+                        SelectableDropdownMenuItem(
+                            selected = !newestFirst,
+                            onClick = { newestFirst = false },
+                            text = { Text(stringResource(R.string.oldest_first)) },
+                            trailingContent = {
+                                if (!newestFirst) {
+                                    Icon(
+                                        painter = painterResource(R.drawable.check),
+                                        contentDescription = null
+                                    )
+                                }
+                            },
+                            shapes = MenuDefaults.itemShape(1, 2)
+                        )
+                    }
+                }
             }
             IconButton(
-                onClick = onDeleteHistory
+                onClick = onDeleteHistory,
+                shapes = IconButtonDefaults.shapes()
             ) {
                 Icon(
                     painter = painterResource(R.drawable.trash_rounded),
                     contentDescription = stringResource(R.string.delete),
                     tint = MaterialTheme.colorScheme.error
                 )
-            }
-
-            DropdownMenuPopup(
-                expanded = dropDownExpanded,
-                onDismissRequest = { dropDownExpanded = false }
-            ) {
-                DropdownMenuGroup(
-                    shapes = MenuDefaults.groupShapes()
-                ) {
-                    SelectableDropdownMenuItem(
-                        selected = newestFirst,
-                        onClick = { newestFirst = true },
-                        text = { Text(stringResource(R.string.newest_first)) },
-                        trailingContent = {
-                            if (newestFirst) {
-                                Icon(
-                                    painter = painterResource(R.drawable.check),
-                                    contentDescription = null
-                                )
-                            }
-                        },
-                        shapes = MenuDefaults.itemShapes()
-                    )
-                    SelectableDropdownMenuItem(
-                        selected = !newestFirst,
-                        onClick = { newestFirst = false },
-                        text = { Text(stringResource(R.string.oldest_first)) },
-                        trailingContent = {
-                            if (!newestFirst) {
-                                Icon(
-                                    painter = painterResource(R.drawable.check),
-                                    contentDescription = null
-                                )
-                            }
-                        },
-                        shapes = MenuDefaults.itemShapes()
-                    )
-                }
             }
         }
     }

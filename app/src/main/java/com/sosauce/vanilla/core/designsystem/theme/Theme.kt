@@ -11,8 +11,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
-import androidx.compose.ui.text.font.FontStyle
-import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.font.FontVariation
 import com.sosauce.vanilla.R
 import com.sosauce.vanilla.core.presentation.rememberAppTheme
 import com.sosauce.vanilla.core.presentation.rememberUseSystemFont
@@ -46,136 +45,48 @@ fun VanillaTheme(
     MaterialExpressiveTheme(
         colorScheme = colorScheme,
         content = content,
-        typography = if (useSystemFont) null else NunitoTypography
+        typography = if (useSystemFont) null else GoogleSansFlexTypography
     )
 
 }
 
-val nunitoFontFamily = FontFamily(
-    Font(R.font.nunito_extrabold, FontWeight.ExtraBold, FontStyle.Normal)
+val googleSansFlexFontFamily = FontFamily(
+    Font(
+        resId = R.font.google_sans_flex_static
+    )
 )
 
-val NunitoTypography = Typography().run {
+val GoogleSansFlexTypography = Typography().run {
     copy(
-        displayLarge = displayLarge.copy(
-            fontFamily = nunitoFontFamily,
-            fontWeight = FontWeight.ExtraBold
-        ),
-        displayMedium = displayMedium.copy(
-            fontFamily = nunitoFontFamily,
-            fontWeight = FontWeight.ExtraBold
-        ),
-        displaySmall = displaySmall.copy(
-            fontFamily = nunitoFontFamily,
-            fontWeight = FontWeight.ExtraBold
-        ),
-        headlineLarge = headlineLarge.copy(
-            fontFamily = nunitoFontFamily,
-            fontWeight = FontWeight.ExtraBold
-        ),
-        headlineMedium = headlineMedium.copy(
-            fontFamily = nunitoFontFamily,
-            fontWeight = FontWeight.ExtraBold
-        ),
-        headlineSmall = headlineSmall.copy(
-            fontFamily = nunitoFontFamily,
-            fontWeight = FontWeight.ExtraBold
-        ),
-        titleLarge = titleLarge.copy(
-            fontFamily = nunitoFontFamily,
-            fontWeight = FontWeight.ExtraBold
-        ),
-        titleMedium = titleMedium.copy(
-            fontFamily = nunitoFontFamily,
-            fontWeight = FontWeight.ExtraBold
-        ),
-        titleSmall = titleSmall.copy(
-            fontFamily = nunitoFontFamily,
-            fontWeight = FontWeight.ExtraBold
-        ),
-        bodyLarge = bodyLarge.copy(
-            fontFamily = nunitoFontFamily,
-            fontWeight = FontWeight.ExtraBold
-        ),
-        bodyMedium = bodyMedium.copy(
-            fontFamily = nunitoFontFamily,
-            fontWeight = FontWeight.ExtraBold
-        ),
-        bodySmall = bodySmall.copy(
-            fontFamily = nunitoFontFamily,
-            fontWeight = FontWeight.ExtraBold
-        ),
-        labelLarge = labelLarge.copy(
-            fontFamily = nunitoFontFamily,
-            fontWeight = FontWeight.ExtraBold
-        ),
-        labelMedium = labelMedium.copy(
-            fontFamily = nunitoFontFamily,
-            fontWeight = FontWeight.ExtraBold
-        ),
-        labelSmall = labelSmall.copy(
-            fontFamily = nunitoFontFamily,
-            fontWeight = FontWeight.ExtraBold
-        ),
-        displayLargeEmphasized = displayLargeEmphasized.copy(
-            fontFamily = nunitoFontFamily,
-            fontWeight = FontWeight.ExtraBold
-        ),
-        displayMediumEmphasized = displayMediumEmphasized.copy(
-            fontFamily = nunitoFontFamily,
-            fontWeight = FontWeight.ExtraBold
-        ),
-        displaySmallEmphasized = displaySmallEmphasized.copy(
-            fontFamily = nunitoFontFamily,
-            fontWeight = FontWeight.ExtraBold
-        ),
-        headlineLargeEmphasized = headlineLargeEmphasized.copy(
-            fontFamily = nunitoFontFamily,
-            fontWeight = FontWeight.ExtraBold
-        ),
-        headlineMediumEmphasized = headlineMediumEmphasized.copy(
-            fontFamily = nunitoFontFamily,
-            fontWeight = FontWeight.ExtraBold
-        ),
-        headlineSmallEmphasized = headlineSmallEmphasized.copy(
-            fontFamily = nunitoFontFamily,
-            fontWeight = FontWeight.ExtraBold
-        ),
-        titleLargeEmphasized = titleLargeEmphasized.copy(
-            fontFamily = nunitoFontFamily,
-            fontWeight = FontWeight.ExtraBold
-        ),
-        titleMediumEmphasized = titleMediumEmphasized.copy(
-            fontFamily = nunitoFontFamily,
-            fontWeight = FontWeight.ExtraBold
-        ),
-        titleSmallEmphasized = titleSmallEmphasized.copy(
-            fontFamily = nunitoFontFamily,
-            fontWeight = FontWeight.ExtraBold
-        ),
-        bodyLargeEmphasized = bodyLargeEmphasized.copy(
-            fontFamily = nunitoFontFamily,
-            fontWeight = FontWeight.ExtraBold
-        ),
-        bodyMediumEmphasized = bodyMediumEmphasized.copy(
-            fontFamily = nunitoFontFamily,
-            fontWeight = FontWeight.ExtraBold
-        ),
-        bodySmallEmphasized = bodySmallEmphasized.copy(
-            fontFamily = nunitoFontFamily,
-            fontWeight = FontWeight.ExtraBold
-        ),
-        labelLargeEmphasized = labelLargeEmphasized.copy(
-            fontFamily = nunitoFontFamily,
-            fontWeight = FontWeight.ExtraBold
-        ),
-        labelMediumEmphasized = labelMediumEmphasized.copy(
-            fontFamily = nunitoFontFamily,
-            fontWeight = FontWeight.ExtraBold
-        ),
-        labelSmallEmphasized = labelSmallEmphasized.copy(
-            fontFamily = nunitoFontFamily,
-            fontWeight = FontWeight.ExtraBold
-        )
+        displayLarge = displayLarge.copy(fontFamily = googleSansFlexFontFamily),
+        displayMedium = displayMedium.copy(fontFamily = googleSansFlexFontFamily),
+        displaySmall = displaySmall.copy(fontFamily = googleSansFlexFontFamily),
+        headlineLarge = headlineLarge.copy(fontFamily = googleSansFlexFontFamily),
+        headlineMedium = headlineMedium.copy(fontFamily = googleSansFlexFontFamily),
+        headlineSmall = headlineSmall.copy(fontFamily = googleSansFlexFontFamily),
+        titleLarge = titleLarge.copy(fontFamily = googleSansFlexFontFamily),
+        titleMedium = titleMedium.copy(fontFamily = googleSansFlexFontFamily),
+        titleSmall = titleSmall.copy(fontFamily = googleSansFlexFontFamily),
+        bodyLarge = bodyLarge.copy(fontFamily = googleSansFlexFontFamily),
+        bodyMedium = bodyMedium.copy(fontFamily = googleSansFlexFontFamily),
+        bodySmall = bodySmall.copy(fontFamily = googleSansFlexFontFamily),
+        labelLarge = labelLarge.copy(fontFamily = googleSansFlexFontFamily),
+        labelMedium = labelMedium.copy(fontFamily = googleSansFlexFontFamily),
+        labelSmall = labelSmall.copy(fontFamily = googleSansFlexFontFamily),
+        displayLargeEmphasized = displayLargeEmphasized.copy(fontFamily = googleSansFlexFontFamily),
+        displayMediumEmphasized = displayMediumEmphasized.copy(fontFamily = googleSansFlexFontFamily),
+        displaySmallEmphasized = displaySmallEmphasized.copy(fontFamily = googleSansFlexFontFamily),
+        headlineLargeEmphasized = headlineLargeEmphasized.copy(fontFamily = googleSansFlexFontFamily),
+        headlineMediumEmphasized = headlineMediumEmphasized.copy(fontFamily = googleSansFlexFontFamily),
+        headlineSmallEmphasized = headlineSmallEmphasized.copy(fontFamily = googleSansFlexFontFamily),
+        titleLargeEmphasized = titleLargeEmphasized.copy(fontFamily = googleSansFlexFontFamily),
+        titleMediumEmphasized = titleMediumEmphasized.copy(fontFamily = googleSansFlexFontFamily),
+        titleSmallEmphasized = titleSmallEmphasized.copy(fontFamily = googleSansFlexFontFamily),
+        bodyLargeEmphasized = bodyLargeEmphasized.copy(fontFamily = googleSansFlexFontFamily),
+        bodyMediumEmphasized = bodyMediumEmphasized.copy(fontFamily = googleSansFlexFontFamily),
+        bodySmallEmphasized = bodySmallEmphasized.copy(fontFamily = googleSansFlexFontFamily),
+        labelLargeEmphasized = labelLargeEmphasized.copy(fontFamily = googleSansFlexFontFamily),
+        labelMediumEmphasized = labelMediumEmphasized.copy(fontFamily = googleSansFlexFontFamily),
+        labelSmallEmphasized = labelSmallEmphasized.copy(fontFamily = googleSansFlexFontFamily)
     )
 }

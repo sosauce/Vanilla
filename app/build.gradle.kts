@@ -74,6 +74,12 @@ android {
         targetCompatibility = JavaVersion.VERSION_17
     }
 
+    packaging {
+        resources {
+            excludes += listOf("/META-INF/*.version", "/kotlin/**", "DebugProbesKt.bin", "/META-INF/**/LICENSE.txt")
+        }
+    }
+
     buildFeatures {
         compose = true
         aidl = false
@@ -99,7 +105,6 @@ dependencies {
     implementation(libs.androidx.datastore.preferences)
     implementation(libs.keval)
     implementation(libs.androidx.room.ktx)
-    implementation(libs.squircle.shape)
     implementation(libs.nekobites)
     implementation(libs.androidx.navigation3.runtime)
     implementation(libs.androidx.navigation3.ui)

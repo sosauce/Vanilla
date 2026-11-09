@@ -1,61 +1,48 @@
-@file:OptIn(ExperimentalUuidApi::class)
-
 package com.sosauce.vanilla.feature.settings.presentation
 
-import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ColumnScope
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.Immutable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.util.fastForEachIndexed
 import androidx.navigation3.runtime.NavKey
 import com.sosauce.nekobites.animations.AnimatedFab
+import com.sosauce.nekobites.components.settings.AboutCard
+import com.sosauce.nekobites.components.settings.ScrollPage
+import com.sosauce.nekobites.components.settings.SettingsCard
+import com.sosauce.nekobites.components.settings.SettingsEntry
 import com.sosauce.vanilla.R
 import com.sosauce.vanilla.app.navigation.Formatting
 import com.sosauce.vanilla.app.navigation.HistorySettings
 import com.sosauce.vanilla.app.navigation.LookAndFeel
 import com.sosauce.vanilla.app.navigation.Misc
-import com.sosauce.vanilla.feature.settings.presentation.components.AboutCard
-import com.sosauce.vanilla.feature.settings.presentation.components.SettingsCategoryCard
+import com.sosauce.vanilla.core.domain.GITHUB_RELEASES
 import com.sosauce.vanilla.core.presentation.selfAlignHorizontally
-import kotlin.uuid.ExperimentalUuidApi
-import kotlin.uuid.Uuid
 
 @Composable
 fun SettingsHomeScreen(
     onNavigate: (NavKey) -> Unit,
     onBack: () -> Unit
 ) {
-    Scaffold(
-        bottomBar = {
-            AnimatedFab(
-                onClick = onBack,
-                modifier = Modifier
-                    .padding(start = 15.dp)
-                    .navigationBarsPadding()
-                    .selfAlignHorizontally(Alignment.Start),
-                icon = R.drawable.back_arrow,
-                containerColor = MaterialTheme.colorScheme.surfaceContainer
-            )
-        }
-    ) { paddingValues ->
-        SettingsPage(
-            modifier = Modifier
-                .verticalScroll(rememberScrollState())
-                .padding(paddingValues)
-                .background(MaterialTheme.colorScheme.background),
-            onNavigateSettings = onNavigate
+    SettingsScaffold(onBack = onBack) { paddingValues ->
+        SettingsHome(
+            onNavigate = onNavigate,
+            contentPadding = paddingValues
         )
     }
 }
@@ -63,8 +50,17 @@ fun SettingsHomeScreen(
 @Composable
 fun SettingsDetailScaffold(
     onBack: () -> Unit,
-    topDp: Dp = 24.dp,
-    content: @Composable () -> Unit
+    content: @Composable ColumnScope.() -> Unit
+) {
+    SettingsScaffold(onBack = onBack) { paddingValues ->
+        ScrollPage(paddingValues, content)
+    }
+}
+
+@Composable
+private fun SettingsScaffold(
+    onBack: () -> Unit,
+    content: @Composable (PaddingValues) -> Unit
 ) {
     Scaffold(
         bottomBar = {
@@ -75,75 +71,75 @@ fun SettingsDetailScaffold(
                     .navigationBarsPadding()
                     .selfAlignHorizontally(Alignment.Start),
                 icon = R.drawable.back_arrow,
-                containerColor = MaterialTheme.colorScheme.surfaceContainer
+                containerColor = MaterialTheme.colorScheme.surfaceContainerHigh
             )
-        }
-    ) { paddingValues ->
-        Column(
-            modifier = Modifier
-                .verticalScroll(rememberScrollState())
-                .padding(paddingValues)
-                .background(MaterialTheme.colorScheme.background)
-                .padding(top = topDp)
-        ) {
-            content()
-        }
-    }
+        },
+        content = content
+    )
 }
 
 @Composable
-private fun SettingsPage(
-    modifier: Modifier = Modifier,
-    onNavigateSettings: (NavKey) -> Unit
+private fun SettingsHome(
+    onNavigate: (NavKey) -> Unit,
+    contentPadding: PaddingValues,
+    modifier: Modifier = Modifier
 ) {
-    val settingsCategories = listOf(
-        SettingsCategory(
-            name = R.string.look_and_feel,
-            description = R.string.look_and_feel_desc,
+    val colors = MaterialTheme.colorScheme
+    val palettes = listOf(
+        colors.primary,
+        colors.secondary,
+        colors.tertiary
+    )
+    val screens = listOf(
+        SettingsEntry(
             icon = R.drawable.palette,
-            onNavigate = { onNavigateSettings(LookAndFeel) }
+            name = stringResource(R.string.look_and_feel),
+            description = stringResource(R.string.look_and_feel_desc),
+            onClick = { onNavigate(LookAndFeel) }
         ),
-        SettingsCategory(
-            name = R.string.history,
-            description = R.string.history_desc,
+        SettingsEntry(
             icon = R.drawable.history_rounded,
-            onNavigate = { onNavigateSettings(HistorySettings) }
+            name = stringResource(R.string.history),
+            description = stringResource(R.string.history_desc),
+            onClick = { onNavigate(HistorySettings) }
         ),
-        SettingsCategory(
-            name = R.string.formatting,
-            description = R.string.formatting_desc,
+        SettingsEntry(
             icon = R.drawable.formatting,
-            onNavigate = { onNavigateSettings(Formatting) }
+            name = stringResource(R.string.formatting),
+            description = stringResource(R.string.formatting_desc),
+            onClick = { onNavigate(Formatting) }
         ),
-        SettingsCategory(
-            name = R.string.misc,
-            description = R.string.misc_desc,
+        SettingsEntry(
             icon = R.drawable.more_horiz,
-            onNavigate = { onNavigateSettings(Misc) }
+            name = stringResource(R.string.misc),
+            description = stringResource(R.string.misc_desc),
+            onClick = { onNavigate(Misc) }
         )
     )
 
-    Column(modifier = modifier) {
-        AboutCard()
+    Column(
+        modifier = modifier
+            .fillMaxSize()
+            .verticalScroll(rememberScrollState())
+            .statusBarsPadding()
+            .padding(bottom = contentPadding.calculateBottomPadding() + 16.dp)
+            .padding(horizontal = 16.dp)
+    ) {
+        AboutCard(
+            icon = R.drawable.calculator,
+            appName = stringResource(R.string.app_name),
+            updateLink = GITHUB_RELEASES
+        )
         Spacer(Modifier.height(20.dp))
-        settingsCategories.fastForEachIndexed { index, category ->
-            SettingsCategoryCard(
-                icon = category.icon,
-                name = category.name,
-                description = category.description,
-                topDp = if (index == 0) 24.dp else 2.dp,
-                bottomDp = if (index == settingsCategories.lastIndex) 24.dp else 2.dp,
-                onNavigate = category.onNavigate
-            )
+        Column(verticalArrangement = Arrangement.spacedBy(2.dp)) {
+            screens.fastForEachIndexed { index, screen ->
+                SettingsCard(
+                    entry = screen,
+                    isFirst = index == 0,
+                    isLast = index == screens.lastIndex,
+                    badgeContainer = palettes[index % palettes.size]
+                )
+            }
         }
     }
 }
-
-@Immutable
-private data class SettingsCategory(
-    val id: String = Uuid.random().toString(),
-    val name: Int,
-    val description: Int,
-    val icon: Int,
-    val onNavigate: () -> Unit
-)

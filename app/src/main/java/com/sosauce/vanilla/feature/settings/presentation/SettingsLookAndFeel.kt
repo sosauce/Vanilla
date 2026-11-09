@@ -1,20 +1,29 @@
 package com.sosauce.vanilla.feature.settings.presentation
 
+import androidx.annotation.DrawableRes
+import androidx.annotation.StringRes
 import androidx.compose.foundation.isSystemInDarkTheme
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
+import androidx.compose.foundation.layout.ColumnScope
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import com.sosauce.nekobites.components.settings.SelectableTile
+import com.sosauce.nekobites.components.settings.SettingsGroup
+import com.sosauce.nekobites.components.settings.SettingsPicker
+import com.sosauce.nekobites.components.settings.SettingsSwitch
 import com.sosauce.vanilla.R
+import com.sosauce.vanilla.core.designsystem.theme.anyDarkColorScheme
+import com.sosauce.vanilla.core.designsystem.theme.anyLightColorScheme
+import com.sosauce.vanilla.core.domain.CuteTheme
 import com.sosauce.vanilla.core.presentation.rememberAppTheme
 import com.sosauce.vanilla.core.presentation.rememberColoredOperators
 import com.sosauce.vanilla.core.presentation.rememberShowClearButton
@@ -22,16 +31,9 @@ import com.sosauce.vanilla.core.presentation.rememberSwapZeroAndDecimal
 import com.sosauce.vanilla.core.presentation.rememberUseButtonsAnimation
 import com.sosauce.vanilla.core.presentation.rememberUseSystemFont
 import com.sosauce.vanilla.core.presentation.rememberVibration
-import com.sosauce.vanilla.feature.settings.presentation.components.LazyRowWithScrollButton
-import com.sosauce.vanilla.feature.settings.presentation.components.SettingsSelector
-import com.sosauce.vanilla.feature.settings.presentation.components.SettingsSwitch
-import com.sosauce.vanilla.feature.settings.presentation.components.SettingsWithTitle
-import com.sosauce.vanilla.core.domain.CuteTheme
-import com.sosauce.vanilla.core.designsystem.theme.anyDarkColorScheme
-import com.sosauce.vanilla.core.designsystem.theme.anyLightColorScheme
 
 @Composable
-fun SettingsLookAndFeel() {
+fun ColumnScope.SettingsLookAndFeel() {
     var theme by rememberAppTheme()
     var useSystemFont by rememberUseSystemFont()
     var useButtonsAnimation by rememberUseButtonsAnimation()
@@ -43,150 +45,126 @@ fun SettingsLookAndFeel() {
     val anyLight = anyLightColorScheme()
     val isSystemDark = isSystemInDarkTheme()
 
-    val themeItems = listOf(
-        ThemeItem(
-            onClick = { theme = CuteTheme.SYSTEM },
-            backgroundColor = if (isSystemDark) anyDark.surfaceContainer else anyLight.surfaceContainer,
-            iconColor = if (isSystemDark) anyDark.onSurface else anyLight.onSurface,
-            text = R.string.system,
-            isSelected = theme == CuteTheme.SYSTEM,
-            icon = R.drawable.system_theme
+    val themes = listOf(
+        ThemeOption(
+            value = CuteTheme.SYSTEM,
+            label = R.string.system,
+            icon = R.drawable.system_theme,
+            background = if (isSystemDark) anyDark.surfaceContainerHighest else anyLight.surfaceContainerHighest,
+            iconColor = if (isSystemDark) anyDark.onSurface else anyLight.onSurface
         ),
-        ThemeItem(
-            onClick = { theme = CuteTheme.DARK },
-            backgroundColor = anyDark.surfaceContainer,
-            iconColor = anyDark.onSurface,
-            text = R.string.dark_mode,
-            isSelected = theme == CuteTheme.DARK,
-            icon = R.drawable.dark_mode
+        ThemeOption(
+            value = CuteTheme.DARK,
+            label = R.string.dark_mode,
+            icon = R.drawable.dark_mode,
+            background = anyDark.surfaceContainerHighest,
+            iconColor = anyDark.onSurface
         ),
-        ThemeItem(
-            onClick = { theme = CuteTheme.LIGHT },
-            backgroundColor = anyLight.surfaceContainer,
-            iconColor = anyLight.onSurface,
-            text = R.string.light_mode,
+        ThemeOption(
+            value = CuteTheme.LIGHT,
+            label = R.string.light_mode,
             icon = R.drawable.light_mode,
-            isSelected = theme == CuteTheme.LIGHT
+            background = anyLight.surfaceContainerHighest,
+            iconColor = anyLight.onSurface
         ),
-        ThemeItem(
-            onClick = { theme = CuteTheme.AMOLED },
-            backgroundColor = Color.Black,
-            iconColor = Color.White,
-            text = R.string.amoled_mode,
+        ThemeOption(
+            value = CuteTheme.AMOLED,
+            label = R.string.amoled_mode,
             icon = R.drawable.amoled,
-            isSelected = theme == CuteTheme.AMOLED
+            background = Color.Black,
+            iconColor = Color.White
         )
     )
-    val fontItems = listOf(
-        FontItem(
-            onClick = { useSystemFont = false },
-            isSelected = !useSystemFont,
-            icon = R.drawable.match_case,
-            text = R.string.default_text
-        ),
-        FontItem(
-            onClick = { useSystemFont = true },
-            isSelected = useSystemFont,
-            icon = R.drawable.system_font,
-            text = R.string.system
-        )
-    )
-    Column {
-        SettingsWithTitle(
-            title = R.string.appearance
-        ) {
-            Card(
-                colors = CardDefaults.cardColors(MaterialTheme.colorScheme.surfaceContainer),
-                shape = RoundedCornerShape(
-                    topStart = 24.dp,
-                    topEnd = 24.dp,
-                    bottomStart = 2.dp,
-                    bottomEnd = 2.dp
-                ),
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 16.dp, vertical = 1.dp)
-            ) {
-                LazyRowWithScrollButton(
-                    items = themeItems
-                ) { item ->
-                    SettingsSelector(
-                        onClick = item.onClick,
-                        icon = item.icon,
-                        text = item.text,
-                        isSelected = item.isSelected
+
+    SettingsGroup(title = stringResource(R.string.appearance)) {
+        SettingsPicker {
+            items(themes) { option ->
+                SelectableTile(
+                    selected = theme == option.value,
+                    onClick = { theme = option.value },
+                    label = stringResource(option.label),
+                    containerColor = option.background
+                ) {
+                    Icon(
+                        painter = painterResource(option.icon),
+                        contentDescription = null,
+                        tint = option.iconColor
                     )
                 }
             }
-            Card(
-                colors = CardDefaults.cardColors(MaterialTheme.colorScheme.surfaceContainer),
-                shape = RoundedCornerShape(2.dp),
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 16.dp, vertical = 1.dp)
-            ) {
-                LazyRowWithScrollButton(
-                    items = fontItems
-                ) { item ->
-                    SettingsSelector(
-                        onClick = item.onClick,
-                        icon = item.icon,
-                        text = item.text,
-                        isSelected = item.isSelected
-                    )
-                }
-            }
-            SettingsSwitch(
-                checked = useButtonsAnimation,
-                onCheckedChange = { useButtonsAnimation = !useButtonsAnimation },
-                topDp = 2.dp,
-                bottomDp = 2.dp,
-                text = R.string.buttons_anim
-            )
-            SettingsSwitch(
-                checked = coloredOperators,
-                onCheckedChange = { coloredOperators = !coloredOperators },
-                topDp = 2.dp,
-                bottomDp = 2.dp,
-                text = R.string.colored_operatos
-            )
-            SettingsSwitch(
-                checked = swapZeroAndDecimal,
-                onCheckedChange = { swapZeroAndDecimal = !swapZeroAndDecimal },
-                topDp = 2.dp,
-                bottomDp = 2.dp,
-                text = R.string.swap_zero_and_decimal
-            )
-            SettingsSwitch(
-                checked = useHapticFeedback,
-                onCheckedChange = { useHapticFeedback = !useHapticFeedback },
-                topDp = 2.dp,
-                bottomDp = 2.dp,
-                text = R.string.haptic_feedback
-            )
-            SettingsSwitch(
-                checked = showClearButton,
-                onCheckedChange = { showClearButton = !showClearButton },
-                topDp = 2.dp,
-                bottomDp = 24.dp,
-                text = R.string.show_clear_button,
-                optionalDescription = R.string.clear_button_desc
-            )
         }
+        SettingsPicker {
+            item {
+                FontTile(
+                    selected = !useSystemFont,
+                    onClick = { useSystemFont = false },
+                    icon = R.drawable.match_case,
+                    label = R.string.default_text
+                )
+            }
+            item {
+                FontTile(
+                    selected = useSystemFont,
+                    onClick = { useSystemFont = true },
+                    icon = R.drawable.system_font,
+                    label = R.string.system
+                )
+            }
+        }
+        SettingsSwitch(
+            title = stringResource(R.string.buttons_anim),
+            checked = useButtonsAnimation,
+            onCheckedChange = { useButtonsAnimation = it }
+        )
+        SettingsSwitch(
+            title = stringResource(R.string.colored_operatos),
+            checked = coloredOperators,
+            onCheckedChange = { coloredOperators = it }
+        )
+        SettingsSwitch(
+            title = stringResource(R.string.swap_zero_and_decimal),
+            checked = swapZeroAndDecimal,
+            onCheckedChange = { swapZeroAndDecimal = it }
+        )
+        SettingsSwitch(
+            title = stringResource(R.string.haptic_feedback),
+            checked = useHapticFeedback,
+            onCheckedChange = { useHapticFeedback = it }
+        )
+        SettingsSwitch(
+            title = stringResource(R.string.show_clear_button),
+            description = stringResource(R.string.clear_button_desc),
+            checked = showClearButton,
+            onCheckedChange = { showClearButton = it }
+        )
     }
 }
 
-data class FontItem(
-    val onClick: () -> Unit,
-    val icon: Int,
-    val text: Int,
-    val isSelected: Boolean
-)
-data class ThemeItem(
-    val onClick: () -> Unit,
-    val backgroundColor: Color,
-    val iconColor: Color = Color.White,
-    val text: Int,
-    val icon: Int,
-    val isSelected: Boolean
+@Composable
+private fun FontTile(
+    selected: Boolean,
+    onClick: () -> Unit,
+    @DrawableRes icon: Int,
+    @StringRes label: Int
+) {
+    SelectableTile(
+        selected = selected,
+        onClick = onClick,
+        label = stringResource(label)
+    ) {
+        Icon(
+            painter = painterResource(icon),
+            contentDescription = null,
+            tint = MaterialTheme.colorScheme.onSurface,
+            modifier = Modifier.size(26.dp)
+        )
+    }
+}
+
+private data class ThemeOption(
+    val value: String,
+    @param:StringRes val label: Int,
+    @param:DrawableRes val icon: Int,
+    val background: Color,
+    val iconColor: Color
 )

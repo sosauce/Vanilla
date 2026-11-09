@@ -1,31 +1,25 @@
 package com.sosauce.vanilla.feature.settings.presentation
 
-import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.unit.dp
+import androidx.compose.ui.res.stringResource
+import com.sosauce.nekobites.components.settings.SettingsGroup
+import com.sosauce.nekobites.components.settings.SettingsSwitch
 import com.sosauce.vanilla.R
 import com.sosauce.vanilla.core.presentation.rememberShowOnLockScreen
-import com.sosauce.vanilla.feature.settings.presentation.components.SettingsSwitch
-import com.sosauce.vanilla.feature.settings.presentation.components.SettingsWithTitle
 
 @Composable
-fun SettingsMisc() {
+fun ColumnScope.SettingsMisc() {
     var showOnLockScreen by rememberShowOnLockScreen()
 
-    Column {
-        SettingsWithTitle(
-            title = R.string.misc
-        ) {
-            SettingsSwitch(
-                checked = showOnLockScreen,
-                onCheckedChange = { showOnLockScreen = !showOnLockScreen },
-                topDp = 24.dp,
-                bottomDp = 24.dp,
-                text = R.string.show_ls,
-                optionalDescription = R.string.show_ls_desc
-            )
-        }
+    SettingsGroup(title = stringResource(R.string.misc)) {
+        SettingsSwitch(
+            title = stringResource(R.string.show_ls),
+            description = stringResource(R.string.show_ls_desc),
+            checked = showOnLockScreen,
+            onCheckedChange = { showOnLockScreen = it }
+        )
     }
 }

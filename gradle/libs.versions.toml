@@ -1,8 +1,8 @@
 [versions]
-agp = "9.4.1"
+agp = "9.5.1"
 composeBom = "2026.09.00"
 coreSplashscreen = "1.2.0"
-datastorePreferences = "1.2.1"
+datastorePreferences = "1.3.0"
 keval = "2.0.1"
 kotlin = "2.4.21"
 ksp = "2.3.6"
@@ -10,11 +10,10 @@ lifecycleViewmodelCompose = "2.11.0"
 roomCompiler = "2.8.5"
 roomKtx = "2.8.5"
 activityCompose = "1.13.0"
-material3 = "1.5.0-beta01"
-squircleShape = "5.4.0"
-nekobites = "1.0.6"
-nav3Core = "1.2.0"
-kotlinxSerializationCore = "1.11.0"
+material3 = "1.5.0-rc01"
+nekobites = "1.1.2"
+nav3Core = "1.2.1"
+kotlinxSerializationCore = "1.12.0"
 koin = "4.2.2"
 
 
@@ -29,8 +28,7 @@ keval = { module = "com.notkamui.libs:keval", version.ref = "keval" }
 androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "roomCompiler" }
 androidx-room-ktx = { module = "androidx.room:room-ktx", version.ref = "roomKtx" }
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "activityCompose" }
-squircle-shape = { module = "com.stoyanvuchev:squircle-shape", version.ref = "squircleShape" }
-nekobites = { module = "com.github.sosauce:NekoBites", version.ref = "nekobites" }
+nekobites = { module = "io.github.sosauce:nekobites", version.ref = "nekobites" }
 androidx-navigation3-runtime = { module = "androidx.navigation3:navigation3-runtime", version.ref = "nav3Core" }
 androidx-navigation3-ui = { module = "androidx.navigation3:navigation3-ui", version.ref = "nav3Core" }
 kotlinx-serialization-core = { module = "org.jetbrains.kotlinx:kotlinx-serialization-core", version.ref = "kotlinxSerializationCore" }

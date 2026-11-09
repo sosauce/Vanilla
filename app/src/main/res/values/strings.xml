@@ -4,12 +4,13 @@
     <string name="settings">Settings</string>
     <string name="dark_mode">Dark</string>
     <string name="light_mode">Light</string>
-    <string name="amoled_mode">AMOLED-Modus</string>
+    <string name="amoled_mode">Amoled</string>
     <string name="system">System</string>
     <string name="buttons_anim">Buttons animation</string>
     <string name="history">History</string>
     <string name="history_not_enabled">It looks like history isn\'t enabled!</string>
     <string name="enable_history">Enable history</string>
+    <string name="history_not_enabled_desc">I can\'t remember your maths if you don\'t let me :(</string>
     <string name="misc">Misc</string>
     <string name="haptic_feedback">Haptic feedback</string>
     <string name="decimal_formatting">Decimal formatting</string>
