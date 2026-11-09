@@ -8,6 +8,7 @@ import com.sosauce.vanilla.core.domain.Tokens
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.math.BigDecimal
+import java.math.BigInteger
 import java.math.RoundingMode
 import kotlin.math.PI
 import kotlin.math.sqrt
@@ -30,7 +31,7 @@ object Evaluator {
             implementation = {
                 if (it < BigDecimal.ZERO) throw KevalInvalidArgumentException("Factorial of a negative number")
                 if (!it.isWholeNumber()) throw KevalInvalidArgumentException("Factorial of a non-integer")
-                fac(it, it)
+                fac(it)
             }
         }
 
@@ -113,13 +114,15 @@ object Evaluator {
 }
 
 
-private fun fac(n: BigDecimal, acc: BigDecimal): BigDecimal {
-    return if (n == BigDecimal.ONE) {
-        acc
-    } else {
-        val lessOne = n.subtract(BigDecimal.ONE)
-        fac(lessOne, acc.multiply(lessOne))
+private fun fac(n: BigDecimal): BigDecimal {
+    val limit = n.toBigIntegerExact()
+    var result = BigInteger.ONE
+    var i = BigInteger.ONE
+    while (i < limit) {
+        i = i.add(BigInteger.ONE)
+        result = result.multiply(i)
     }
+    return BigDecimal(result)
 }
 
 private fun BigDecimal.isWholeNumber(): Boolean {
