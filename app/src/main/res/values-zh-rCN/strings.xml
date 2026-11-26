@@ -37,4 +37,8 @@
     <string name="oldest_first">最早的在前</string>
     <string name="colored_operatos">彩色运算符</string>
     <string name="swap_zero_and_decimal">调换 0 与小数点位置</string>
+    <string name="appearance">外观</string>
+    <string name="default_text">默认</string>
+    <string name="enter_new_value">输入新值</string>
+    <string name="enter_value_between_range">输入 %1$d 和 %2$d 之间的值</string>
 </resources>

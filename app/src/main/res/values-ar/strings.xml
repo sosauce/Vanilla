@@ -36,4 +36,6 @@
     <string name="newest_first">الأحدث أولاً</string>
     <string name="oldest_first">الأقدم أولاً</string>
     <string name="swap_zero_and_decimal">تبديل الصفر والفاصلة العشرية</string>
+    <string name="enter_new_value">أدخل قيمة جديدة</string>
+    <string name="enter_value_between_range">أدخل قيمة بين %1$d و %2$d</string>
 </resources>

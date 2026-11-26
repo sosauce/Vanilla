@@ -37,4 +37,12 @@
     <string name="oldest_first">Najstarsze na początku</string>
     <string name="colored_operatos">Kolorowanie operatorów</string>
     <string name="swap_zero_and_decimal">Zamień miejscami zero i przecinek</string>
+    <string name="appearance">Wygląd</string>
+    <string name="default_text">Domyślny</string>
+    <string name="enter_new_value">Wprowadź nową wartość</string>
+    <string name="apply">Zastosuj</string>
+    <string name="enter_value_between_range">Wprowadź wartość od %1$d do %2$d</string>
+    <string name="empty_history">Historia jest pusta!</string>
+    <string name="app_name">Vanilla</string>
+    <string name="empty_history_desc">2 + 2 = 4, tak myślę</string>
 </resources>
