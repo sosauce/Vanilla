@@ -76,5 +76,5 @@ The above copyright notice, this permission notice, and its license shall be inc
 
 You can find a copy of the GNU General Public License v3 [here](https://www.gnu.org/licenses/)</p>
 ---
-#### You can find the SHA-256 [here](https://sosauce.github.io/projects/)
+#### You can find the SHA-256 [here](https://sosauce.vercel.app/projects)
 

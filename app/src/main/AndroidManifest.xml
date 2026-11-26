@@ -2,13 +2,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission
         android:name="com.sosauce.cutecalc.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
         tools:node="remove" />
 
 
     <application
+        android:name=".app.VanillaApplication"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
@@ -16,7 +16,7 @@
         android:theme="@style/Theme.CuteSplash"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".app.MainActivity"
             android:exported="true"
             android:launchMode="singleTask"
             android:theme="@style/Theme.CuteSplash">
@@ -29,7 +29,7 @@
         </activity>
 
         <service
-            android:name=".data.sysui.QSTile"
+            android:name=".app.sysui.QSTile"
             android:exported="true"
             android:icon="@drawable/calculator"
             android:label="@string/app_name"

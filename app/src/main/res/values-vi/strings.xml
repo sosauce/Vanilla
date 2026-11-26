@@ -1,22 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="theme">Chủ đề</string>
     <string name="settings">Cài đặt</string>
     <string name="dark_mode">Ban đêm</string>
     <string name="light_mode">Ban ngày</string>
     <string name="amoled_mode">Đen</string>
-    <string name="version">Phiên bản</string>
-    <string name="support">Hỗ trợ</string>
-    <string name="update">Kiểm tra cập nhật</string>
     <string name="misc">Khác</string>
     <string name="system">Hệ thống</string>
-    <string name="ascending">Tăng dần</string>
-    <string name="descending">Giảm dần</string>
     <string name="delete">Xóa</string>
-    <string name="ui">UI</string>
     <string name="cancel">Hủy</string>
-    <string name="sort">Sắp xếp</string>
     <string name="look_and_feel">Hình thức và cảm nhận</string>
-    <string name="font">Phông chữ</string>
-    <string name="show_back_button">Hiển thị nút quay lại</string>
 </resources>
